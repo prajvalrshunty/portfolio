@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, CheckCircle2 } from 'lucide-react';
 import { Github } from './Icons';
 import { CardContainer, CardBody, CardItem } from './ThreeDCard';
 
 export default function ProjectCard({ project }) {
+  const primaryUrl = project.liveUrl || project.githubUrl;
+
   return (
     <CardContainer containerClassName="w-full">
       <CardBody className="group relative rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/80 overflow-hidden backdrop-blur-md hover:border-blue-500/50 hover:shadow-[0_16px_36px_rgba(59,130,246,0.1)] dark:hover:shadow-[0_15px_30px_rgba(59,130,246,0.08)] transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03),0_1px_3px_rgba(0,0,0,0.02)]">
@@ -54,9 +55,19 @@ export default function ProjectCard({ project }) {
               as="h3"
               className="text-xl sm:text-2xl font-bold font-display text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug tracking-tight"
             >
-              <Link to={`/project/${project.slug}`} className="hover:underline">
-                {project.title}
-              </Link>
+              {primaryUrl ? (
+                <a
+                  href={primaryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline flex items-center gap-2"
+                >
+                  <span>{project.title}</span>
+                  <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                </a>
+              ) : (
+                <span>{project.title}</span>
+              )}
             </CardItem>
 
             <CardItem
@@ -81,41 +92,34 @@ export default function ProjectCard({ project }) {
               ))}
             </CardItem>
 
-            <div className="flex items-center justify-between pt-2">
-              <CardItem translateZ="30">
-                <Link
-                  to={`/project/${project.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 font-semibold group/btn py-2 px-1 active:scale-95 transition-transform"
-                >
-                  <span>View Case Study</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
-                </Link>
-              </CardItem>
-
-              <CardItem translateZ="30" className="flex items-center gap-1 sm:gap-2">
-                {project.githubUrl && (
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              {project.githubUrl && (
+                <CardItem translateZ="25">
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="View Source on GitHub"
-                    className="p-2.5 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 active:scale-90 transition-all touch-manipulation"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-slate-200/90 dark:border-white/10 bg-slate-50 dark:bg-zinc-900/80 hover:border-blue-500/50 hover:bg-blue-50/50 dark:hover:bg-blue-500/10 text-zinc-900 dark:text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-xs"
                   >
-                    <Github className="w-4 h-4" />
+                    <Github className="w-3.5 h-3.5" />
+                    <span>Source Code</span>
                   </a>
-                )}
-                {project.liveUrl && (
+                </CardItem>
+              )}
+
+              {project.liveUrl && (
+                <CardItem translateZ="25">
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="View Live Project"
-                    className="p-2.5 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 active:scale-90 transition-all touch-manipulation"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-sm"
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <span>Live Demo</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
-                )}
-              </CardItem>
+                </CardItem>
+              )}
             </div>
           </div>
         </div>
