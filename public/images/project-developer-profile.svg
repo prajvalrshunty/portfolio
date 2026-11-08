@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" fill="none">
+  <defs>
+    <linearGradient id="profileBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#120E1E" />
+      <stop offset="100%" stop-color="#08070D" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A78BFA" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="600" fill="url(#profileBg)" />
+  <rect x="20" y="20" width="960" height="560" rx="14" stroke="rgba(167,139,250,0.15)" stroke-width="1.5" />
+
+  <!-- Window Header -->
+  <rect x="20" y="20" width="960" height="50" rx="14" fill="#181326" />
+  <circle cx="55" cy="45" r="5.5" fill="#EF4444" />
+  <circle cx="75" cy="45" r="5.5" fill="#F59E0B" />
+  <circle cx="95" cy="45" r="5.5" fill="#10B981" />
+  <text x="130" y="49" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="12">github.com/prajvalrshunty/prajvalrshunty/README.md</text>
+
+  <!-- Banner Capsule Mockup -->
+  <g transform="translate(60, 100)">
+    <rect width="880" height="110" rx="12" fill="url(#purpleGrad)" opacity="0.9" />
+    <text x="440" y="55" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-weight="800" font-size="34" text-anchor="middle">Prajval R Shunty</text>
+    <text x="440" y="85" fill="rgba(255,255,255,0.9)" font-family="'JetBrains Mono', monospace" font-size="14" text-anchor="middle">Python | C | HTML | CSS | JavaScript | Data Science</text>
+  </g>
+
+  <!-- Developer Profile Stats Grid -->
+  <g transform="translate(60, 240)">
+    <!-- Card 1: Focus & Student Info -->
+    <rect x="0" y="0" width="425" height="180" rx="10" fill="#171224" stroke="rgba(167,139,250,0.2)" />
+    <text x="25" y="38" fill="#A78BFA" font-family="'Outfit', sans-serif" font-weight="700" font-size="16">🎓 Computer Science &amp; Data Science Student</text>
+    <text x="25" y="70" fill="rgba(255,255,255,0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Entering 3rd Semester at BIET Davangere</text>
+    <text x="25" y="95" fill="rgba(255,255,255,0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Focus: Web Development • AI &amp; Automation • Open Source</text>
+    
+    <rect x="25" y="120" width="120" height="32" rx="6" fill="#A78BFA" opacity="0.15" />
+    <text x="45" y="141" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">OPEN TO WORK</text>
+
+    <!-- Card 2: GitHub Stats & Streak Mock -->
+    <rect x="455" y="0" width="425" height="180" rx="10" fill="#171224" stroke="rgba(167,139,250,0.2)" />
+    <text x="480" y="38" fill="#A78BFA" font-family="'Outfit', sans-serif" font-weight="700" font-size="16">📊 GitHub Telemetry &amp; Streak Metrics</text>
+    <line x1="480" y1="55" x2="855" y2="55" stroke="rgba(255,255,255,0.06)" />
+    <text x="480" y="85" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="12">PROFILE VIEWS: DYNAMIC COUNTER</text>
+    <text x="480" y="115" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="12">TOP LANGUAGES: HTML • C • JAVASCRIPT</text>
+    <text x="480" y="145" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12">STREAK: ACTIVE OPEN SOURCE CONTRIBUTIONS</text>
+  </g>
+
+  <!-- Terminal Status Footer -->
+  <g transform="translate(60, 450)">
+    <rect width="880" height="80" rx="8" fill="#100C1A" stroke="rgba(255,255,255,0.05)" />
+    <text x="30" y="45" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="12">REPO: prajvalrshunty/prajvalrshunty // SPECIAL REPOSITORY</text>
+    <text x="710" y="45" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12">STATUS: COMMITTED &amp; LIVE</text>
+  </g>
+</svg>
