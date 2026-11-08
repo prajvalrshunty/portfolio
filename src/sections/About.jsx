@@ -65,9 +65,9 @@ export default function About() {
               <motion.div
                 whileHover={{ y: -3, scale: 1.015 }}
                 whileTap={{ scale: 0.98 }}
-                className="p-5 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/60 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(99,102,241,0.1)] hover:border-indigo-500/40 transition-all duration-300"
+                className="p-5 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/60 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(59,130,246,0.1)] hover:border-blue-500/40 transition-all duration-300"
               >
-                <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mb-2" />
+                <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400 mb-2" />
                 <h4 className="text-sm font-bold text-zinc-950 dark:text-white font-display">
                   Software Engineering
                 </h4>
@@ -90,7 +90,7 @@ export default function About() {
                     Information Dossier
                   </h3>
                 </div>
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10B981]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
               </div>
 
               {/* Info Items List */}
@@ -109,7 +109,7 @@ export default function About() {
                       <span
                         className={`font-medium text-right text-xs sm:text-sm ${
                           item.highlight
-                            ? 'text-emerald-600 dark:text-emerald-400 font-mono font-bold'
+                            ? 'text-blue-600 dark:text-blue-400 font-mono font-bold'
                             : 'text-zinc-950 dark:text-white'
                         }`}
                       >
@@ -121,8 +121,9 @@ export default function About() {
               </div>
 
               {/* Verified academic banner */}
-              <div className="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-600 dark:text-zinc-400 font-mono leading-relaxed">
-                Verified B.E. Computer Science &amp; Engineering (Data Science) student (2025–2029) at BIET Davangere.
+              <div className="mt-6 p-4 rounded-xl bg-blue-50/60 dark:bg-blue-500/10 border border-blue-200/70 dark:border-blue-500/20 text-xs text-slate-700 dark:text-zinc-300 font-mono leading-relaxed flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
+                <span>Verified B.E. Computer Science &amp; Engineering (Data Science) student (2025–2029) at BIET Davangere.</span>
               </div>
             </div>
           </div>

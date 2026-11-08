@@ -47,22 +47,22 @@ export default function AceternityBackground() {
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.10, 0.20, 0.10],
+          opacity: [0.08, 0.16, 0.08],
           x: [0, -30, 0],
           y: [0, 30, 0],
         }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-1/3 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-indigo-500/20 via-violet-400/15 to-transparent blur-[150px] dark:from-indigo-600/25 dark:via-purple-600/20"
+        className="absolute top-1/3 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-blue-500/15 via-cyan-400/10 to-transparent blur-[150px] dark:from-blue-600/20 dark:via-cyan-500/15"
       />
 
       {/* Bottom Center Orb */}
       <motion.div
         animate={{
           scale: [1.1, 0.95, 1.1],
-          opacity: [0.08, 0.16, 0.08],
+          opacity: [0.06, 0.14, 0.06],
         }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-        className="absolute -bottom-40 left-1/3 w-[500px] h-[500px] rounded-full bg-gradient-to-t from-blue-400/15 via-emerald-400/10 to-transparent blur-[130px] dark:from-blue-600/20 dark:via-emerald-500/15"
+        className="absolute -bottom-40 left-1/3 w-[500px] h-[500px] rounded-full bg-gradient-to-t from-blue-400/12 via-cyan-400/10 to-transparent blur-[130px] dark:from-blue-600/20 dark:via-cyan-500/15"
       />
 
       {/* 4. Aceternity Light Beams (Curved SVG Light Stream Paths) */}
