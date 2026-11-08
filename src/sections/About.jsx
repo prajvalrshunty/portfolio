@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { User, GraduationCap, Building2, Calendar, Award, MapPin, Sparkles, BrainCircuit } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
+import DaisyTerminal from '../components/DaisyTerminal';
 import { personalInfo } from '../data/personalInfo';
 
 export default function About() {
@@ -126,6 +127,28 @@ export default function About() {
             </div>
           </div>
         </div>
+
+        {/* DaisyUI Live Telemetry Terminal Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-14 sm:mt-16"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-slate-700 dark:text-zinc-300">
+                DEVELOPER CONSOLE // DIAGNOSTIC TELEMETRY
+              </span>
+            </div>
+            <span className="text-[11px] font-mono text-slate-500 dark:text-zinc-500">
+              ORIGINKIT / DAISYUI MOCKUP-CODE WORKSTATION
+            </span>
+          </div>
+          <DaisyTerminal />
+        </motion.div>
       </div>
     </section>
   );

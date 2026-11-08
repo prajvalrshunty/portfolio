@@ -55,6 +55,10 @@ export default {
         'pulse-subtle': 'pulseSubtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float-slow': 'floatSlow 6s ease-in-out infinite',
         'shimmer': 'shimmer 2.5s linear infinite',
+        'marquee': 'marquee 35s linear infinite',
+        'marquee-reverse': 'marqueeReverse 35s linear infinite',
+        'spin-slow': 'spin 16s linear infinite',
+        'beam': 'beamFlow 10s linear infinite',
       },
       keyframes: {
         pulseSubtle: {
@@ -68,6 +72,18 @@ export default {
         shimmer: {
           'from': { backgroundPosition: '0 0' },
           'to': { backgroundPosition: '-200% 0' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        marqueeReverse: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        beamFlow: {
+          '0%': { strokeDashoffset: '1000' },
+          '100%': { strokeDashoffset: '0' },
         }
       }
     },

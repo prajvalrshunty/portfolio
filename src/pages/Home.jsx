@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../sections/Hero';
+import TechMarquee from '../components/TechMarquee';
 import About from '../sections/About';
 import Skills from '../sections/Skills';
 import Projects from '../sections/Projects';
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main className="relative">
       <Hero />
+      <TechMarquee />
       <About />
       <Skills />
       <Projects />
