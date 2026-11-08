@@ -53,7 +53,7 @@ export default function InteractivePortrait({
     setIsHovered(false);
   };
 
-  const spotlightRadius = 140;
+  const spotlightRadius = 250;
 
   return (
     <div
@@ -65,7 +65,7 @@ export default function InteractivePortrait({
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onTouchCancel={handleTouchEnd}
-      className="relative w-full rounded-2xl overflow-hidden aspect-[4/5] bg-zinc-100 dark:bg-zinc-900 select-none shadow-md group cursor-crosshair"
+      className="relative w-full rounded-2xl overflow-hidden aspect-[4/5] bg-zinc-100 dark:bg-zinc-900 select-none shadow-md group"
     >
       {/* Base Layer:
           - Light Mode: Full original color (no filter)
@@ -79,15 +79,15 @@ export default function InteractivePortrait({
       />
 
       {/* Top Reveal Layer (Dark Mode only):
-          Full original color masked to cursor/touch coordinates
+          Full original color masked to cursor/touch coordinates with expanded radius
       */}
       <div
         className="absolute inset-0 pointer-events-none hidden dark:block"
         style={{
           opacity: isHovered ? 1 : 0,
           transition: isHovered ? 'opacity 0.2s ease-out' : 'opacity 0.5s ease-in',
-          maskImage: `radial-gradient(circle ${spotlightRadius}px at ${pos.x}px ${pos.y}px, black 25%, transparent 75%)`,
-          WebkitMaskImage: `radial-gradient(circle ${spotlightRadius}px at ${pos.x}px ${pos.y}px, black 25%, transparent 75%)`,
+          maskImage: `radial-gradient(circle ${spotlightRadius}px at ${pos.x}px ${pos.y}px, black 35%, transparent 90%)`,
+          WebkitMaskImage: `radial-gradient(circle ${spotlightRadius}px at ${pos.x}px ${pos.y}px, black 35%, transparent 90%)`,
         }}
       >
         <img
@@ -103,7 +103,7 @@ export default function InteractivePortrait({
         <div
           className="pointer-events-none absolute -inset-0 hidden dark:block z-10 transition-opacity duration-200"
           style={{
-            background: `radial-gradient(circle ${spotlightRadius * 0.9}px at ${pos.x}px ${pos.y}px, rgba(59, 130, 246, 0.15), transparent 70%)`,
+            background: `radial-gradient(circle ${spotlightRadius * 0.8}px at ${pos.x}px ${pos.y}px, rgba(59, 130, 246, 0.12), transparent 75%)`,
           }}
         />
       )}
