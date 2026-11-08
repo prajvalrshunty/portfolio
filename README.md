@@ -2,7 +2,7 @@
 
 An Awwwards-inspired, dark editorial portfolio showcasing academic foundations, technical competencies, and verified software engineering projects.
 
-🌐 **Live Website:** [https://portfolio-prajvalrshunty.vercel.app](https://portfolio-prajvalrshunty.vercel.app)  
+🌐 **Live Website:** [https://prajval-portfolio-ruddy.vercel.app](https://prajval-portfolio-ruddy.vercel.app)  
 📂 **GitHub Repository:** [https://github.com/prajvalrshunty/portfolio](https://github.com/prajvalrshunty/portfolio)
 
 ---
