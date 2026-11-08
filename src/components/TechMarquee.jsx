@@ -1,37 +1,40 @@
 import React from 'react';
 import {
-  Code2,
   BrainCircuit,
   Database,
   Cpu,
-  Layers,
   Sparkles,
-  GitBranch,
-  Terminal,
   ShieldCheck,
-  Flame,
-  Globe,
-  Binary
+  Flame
 } from 'lucide-react';
+import {
+  PythonLogo,
+  CLogo,
+  JavaLogo,
+  JavaScriptLogo,
+  NodeLogo,
+  GitLogo,
+  ReactLogo,
+  TailwindLogo
+} from './SkillLogos';
 
 export default function TechMarquee() {
   const technologies = [
-    { name: "Python 3.x", role: "Core Language & ML", icon: Terminal, color: "text-amber-500 dark:text-amber-400" },
-    { name: "Machine Learning", role: "Predictive Analytics", icon: BrainCircuit, color: "text-blue-500 dark:text-blue-400" },
-    { name: "scikit-learn", role: "Feature Extraction", icon: Cpu, color: "text-indigo-500 dark:text-indigo-400" },
-    { name: "Pandas & NumPy", role: "Tabular Vectorization", icon: Database, color: "text-cyan-500 dark:text-cyan-400" },
-    { name: "React 19", role: "Modern Component Architecture", icon: Sparkles, color: "text-cyan-500 dark:text-cyan-400" },
-    { name: "JavaScript / ES6+", role: "Asynchronous Primitives", icon: Terminal, color: "text-yellow-500 dark:text-yellow-400" },
-    { name: "Node.js", role: "Runtime Backend Services", icon: Globe, color: "text-emerald-500 dark:text-emerald-400" },
-    { name: "C Programming", role: "Pointers & Memory", icon: Binary, color: "text-emerald-500 dark:text-emerald-400" },
-    { name: "Java Standard", role: "OOP & Data Structures", icon: Code2, color: "text-orange-500 dark:text-orange-400" },
-    { name: "Tailwind CSS", role: "Utility Design Tokens", icon: Layers, color: "text-sky-500 dark:text-sky-400" },
-    { name: "SQL & Analytics", role: "Relational Queries", icon: Database, color: "text-sky-500 dark:text-sky-400" },
-    { name: "Git & GitHub", role: "Disciplined Version Control", icon: GitBranch, color: "text-purple-500 dark:text-purple-400" },
-    { name: "BIET Davangere", role: "B.E. Data Science (7.5 CGPA)", icon: ShieldCheck, color: "text-blue-600 dark:text-blue-400" },
-    { name: "Vite 6 Tooling", role: "Next-Gen Bundling & HMR", icon: Flame, color: "text-amber-500 dark:text-amber-400" },
-    { name: "Framer Motion", role: "Hardware Physics", icon: Sparkles, color: "text-pink-500 dark:text-pink-400" },
-    { name: "Alva's PU College", role: "PCMB Science (2023–2025)", icon: ShieldCheck, color: "text-emerald-600 dark:text-emerald-400" }
+    { name: "Python 3.x", role: "Core Language & ML", Logo: PythonLogo },
+    { name: "Machine Learning", role: "Predictive Analytics", Icon: BrainCircuit, color: "text-blue-500" },
+    { name: "scikit-learn", role: "Feature Extraction", Icon: Cpu, color: "text-indigo-500" },
+    { name: "React 19", role: "Component Architecture", Logo: ReactLogo },
+    { name: "JavaScript / ES6+", role: "Asynchronous Primitives", Logo: JavaScriptLogo },
+    { name: "Pandas & NumPy", role: "Tabular Vectorization", Icon: Database, color: "text-cyan-500" },
+    { name: "Node.js", role: "Runtime Backend Services", Logo: NodeLogo },
+    { name: "C Programming", role: "Pointers & Memory", Logo: CLogo },
+    { name: "Java Standard", role: "OOP & Data Structures", Logo: JavaLogo },
+    { name: "Tailwind CSS", role: "Utility Design Tokens", Logo: TailwindLogo },
+    { name: "Git & GitHub", role: "Disciplined Version Control", Logo: GitLogo },
+    { name: "BIET Davangere", role: "B.E. Data Science (7.5 CGPA)", Icon: ShieldCheck, color: "text-blue-600" },
+    { name: "Vite 6 Tooling", role: "Next-Gen Bundling & HMR", Icon: Flame, color: "text-amber-500" },
+    { name: "Framer Motion", role: "Hardware Physics", Icon: Sparkles, color: "text-pink-500" },
+    { name: "Alva's PU College", role: "PCMB Science (2023–2025)", Icon: ShieldCheck, color: "text-emerald-600" }
   ];
 
   return (
@@ -56,54 +59,56 @@ export default function TechMarquee() {
       <div className="relative w-full [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <div className="group flex overflow-hidden select-none gap-4">
           <div className="flex shrink-0 gap-4 animate-marquee group-hover:[animation-play-state:paused]">
-            {technologies.concat(technologies).map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={`tech-${idx}`}
-                  className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(59,130,246,0.12)] hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-200 cursor-default shrink-0"
-                >
-                  <div className={`p-2 rounded-lg bg-slate-100 dark:bg-zinc-800/80 ${item.color}`}>
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-xs font-mono font-bold text-zinc-950 dark:text-white block">
-                      {item.name}
-                    </span>
-                    <span className="text-[10px] font-mono text-slate-500 dark:text-zinc-400 block tracking-tight">
-                      {item.role}
-                    </span>
-                  </div>
+            {technologies.concat(technologies).map((item, idx) => (
+              <div
+                key={`tech-${idx}`}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(59,130,246,0.12)] hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-200 cursor-default shrink-0"
+              >
+                <div className="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800/80 flex items-center justify-center">
+                  {item.Logo ? (
+                    <item.Logo className="w-4 h-4 shrink-0" />
+                  ) : (
+                    <item.Icon className={`w-4 h-4 shrink-0 ${item.color}`} />
+                  )}
                 </div>
-              );
-            })}
+                <div className="text-left">
+                  <span className="text-xs font-mono font-bold text-zinc-950 dark:text-white block">
+                    {item.name}
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-500 dark:text-zinc-400 block tracking-tight">
+                    {item.role}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div
             aria-hidden="true"
             className="flex shrink-0 gap-4 animate-marquee group-hover:[animation-play-state:paused]"
           >
-            {technologies.concat(technologies).map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={`tech-dup-${idx}`}
-                  className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(59,130,246,0.12)] hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-200 cursor-default shrink-0"
-                >
-                  <div className={`p-2 rounded-lg bg-slate-100 dark:bg-zinc-800/80 ${item.color}`}>
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-xs font-mono font-bold text-zinc-950 dark:text-white block">
-                      {item.name}
-                    </span>
-                    <span className="text-[10px] font-mono text-slate-500 dark:text-zinc-400 block tracking-tight">
-                      {item.role}
-                    </span>
-                  </div>
+            {technologies.concat(technologies).map((item, idx) => (
+              <div
+                key={`tech-dup-${idx}`}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(59,130,246,0.12)] hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-200 cursor-default shrink-0"
+              >
+                <div className="p-2 rounded-lg bg-slate-100 dark:bg-zinc-800/80 flex items-center justify-center">
+                  {item.Logo ? (
+                    <item.Logo className="w-4 h-4 shrink-0" />
+                  ) : (
+                    <item.Icon className={`w-4 h-4 shrink-0 ${item.color}`} />
+                  )}
                 </div>
-              );
-            })}
+                <div className="text-left">
+                  <span className="text-xs font-mono font-bold text-zinc-950 dark:text-white block">
+                    {item.name}
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-500 dark:text-zinc-400 block tracking-tight">
+                    {item.role}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

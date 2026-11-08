@@ -1,39 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  FileCode2,
-  Binary,
-  Coffee,
-  Layout,
-  Palette,
-  Code,
-  Server,
-  GitBranch,
-  Cpu,
-  Database,
-  Terminal,
-  Sparkles
-} from 'lucide-react';
-import { Github } from './Icons';
-
-const iconMap = {
-  FileCode2,
-  Binary,
-  Coffee,
-  Layout,
-  Palette,
-  Code,
-  Server,
-  GitBranch,
-  Github,
-  Cpu,
-  Database,
-  Terminal
-};
+import { Sparkles } from 'lucide-react';
+import { skillLogoMap } from './SkillLogos';
 
 export default function SkillCard({ skill }) {
   const [isTapped, setIsTapped] = useState(false);
-  const IconComponent = iconMap[skill.icon] || Code;
+  const LogoComponent = skillLogoMap[skill.name];
 
   return (
     <motion.div
@@ -45,8 +17,14 @@ export default function SkillCard({ skill }) {
     >
       <div>
         <div className="flex items-center justify-between mb-5">
-          <div className="p-3 rounded-xl bg-blue-50 dark:bg-zinc-900/90 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-600 dark:group-hover:text-white transition-colors duration-300 border border-blue-200/70 dark:border-white/5 shadow-inner">
-            <IconComponent className="w-5 h-5" />
+          <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900/90 border border-slate-200/90 dark:border-white/10 group-hover:border-blue-500/50 group-hover:shadow-[0_4px_16px_rgba(59,130,246,0.15)] group-hover:scale-105 transition-all duration-300 flex items-center justify-center shadow-xs">
+            {LogoComponent ? (
+              <LogoComponent className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" />
+            ) : (
+              <span className="font-mono text-xs font-bold text-blue-600">
+                {skill.name.slice(0, 2).toUpperCase()}
+              </span>
+            )}
           </div>
           <span className={`text-[10px] font-mono tracking-widest uppercase px-2.5 py-0.5 rounded-md border transition-colors duration-200 ${
             isTapped
