@@ -4,20 +4,22 @@ export function useTheme() {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('portfolio-theme');
-      if (saved) return saved;
-      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      if (saved === 'light' || saved === 'dark') return saved;
+      return 'dark';
     }
     return 'dark';
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'light') {
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+      root.style.colorScheme = 'dark';
+    } else {
       root.classList.remove('dark');
       root.classList.add('light');
-    } else {
-      root.classList.remove('light');
-      root.classList.add('dark');
+      root.style.colorScheme = 'light';
     }
     localStorage.setItem('portfolio-theme', theme);
   }, [theme]);

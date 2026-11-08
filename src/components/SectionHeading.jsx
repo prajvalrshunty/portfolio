@@ -20,23 +20,23 @@ export default function SectionHeading({
     >
       <div className={`flex items-center gap-3 mb-3.5 ${isCentered ? 'justify-center' : ''}`}>
         {number && (
-          <span className="font-mono text-xs text-blue-400 tracking-widest font-semibold px-2.5 py-0.5 rounded-md border border-blue-500/20 bg-blue-500/10 shadow-[0_0_12px_rgba(59,130,246,0.15)]">
+          <span className="font-mono text-xs text-blue-600 dark:text-blue-400 tracking-widest font-semibold px-2.5 py-0.5 rounded-md border border-blue-200 dark:border-blue-500/20 bg-blue-50 dark:bg-blue-500/10 shadow-sm">
             // {number}
           </span>
         )}
         {category && (
-          <span className="text-xs uppercase tracking-cinematic text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-mono font-medium">
+          <span className="text-xs uppercase tracking-cinematic text-zinc-500 dark:text-zinc-400 font-mono font-medium">
             {category}
           </span>
         )}
       </div>
 
-      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white dark:text-white light:text-zinc-950 font-display uppercase leading-[1.05]">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-zinc-950 dark:text-white font-display uppercase leading-[1.05]">
         {title}
       </h2>
 
       {subtitle && (
-        <p className="mt-4 text-base sm:text-lg text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-normal max-w-2xl leading-relaxed font-sans">
+        <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 font-normal max-w-2xl leading-relaxed font-sans">
           {subtitle}
         </p>
       )}

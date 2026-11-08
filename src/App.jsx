@@ -31,7 +31,7 @@ export default function App() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen flex flex-col bg-dark-bg text-dark-text dark:bg-dark-bg dark:text-dark-text light:bg-light-bg light:text-light-text selection:bg-blue-600 selection:text-white transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[#F8F9FA] text-zinc-900 dark:bg-[#080808] dark:text-[#F5F5F7] selection:bg-blue-600 selection:text-white transition-colors duration-300">
       <CustomCursor />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <ScrollToHash />

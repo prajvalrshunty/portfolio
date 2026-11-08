@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
+    --bg-primary: #F8F9FA;
+    --text-primary: #111827;
+    --border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
     --bg-primary: #080808;
     --text-primary: #F5F5F7;
     --border-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .light {
-    --bg-primary: #FBFBFD;
-    --text-primary: #111113;
-    --border-color: rgba(0, 0, 0, 0.08);
   }
 
   html {
@@ -22,55 +22,47 @@
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Custom subtle scrollbar */
+  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
 
   ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+
+  .dark ::-webkit-scrollbar-track {
     background: #080808;
   }
 
-  .light ::-webkit-scrollbar-track {
-    background: #F5F5F7;
-  }
-
   ::-webkit-scrollbar-thumb {
-    background: #27272a;
+    background: #CBD5E1;
     border-radius: 3px;
   }
 
-  .light ::-webkit-scrollbar-thumb {
-    background: #d4d4d8;
+  .dark ::-webkit-scrollbar-thumb {
+    background: #27272A;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #3b82f6;
+    background: #3B82F6;
   }
 }
 
 /* Custom noise grain overlay for cinematic editorial feel */
 .bg-grain {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-.light .bg-grain {
   background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
-/* Asymmetric editorial rule */
-.editorial-border {
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-.light .editorial-border {
-  border-color: rgba(0, 0, 0, 0.08);
+.dark .bg-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
 /* Hide default cursor on desktop when custom cursor is active */

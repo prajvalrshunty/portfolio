@@ -9,10 +9,10 @@ export default function NotFound() {
         <span className="text-blue-500 font-mono text-sm tracking-widest uppercase font-semibold">
           // Error 404
         </span>
-        <h1 className="text-4xl sm:text-5xl font-extrabold uppercase font-editorial tracking-tight text-white dark:text-white light:text-zinc-950">
+        <h1 className="text-4xl sm:text-5xl font-extrabold uppercase font-editorial tracking-tight text-zinc-900 dark:text-white">
           Page Not Found
         </h1>
-        <p className="text-zinc-400 dark:text-zinc-400 light:text-zinc-600 text-sm font-light leading-relaxed">
+        <p className="text-zinc-600 dark:text-zinc-400 text-sm font-light leading-relaxed">
           The requested route or blueprint does not exist in Prajval R Shunty&apos;s digital portfolio.
         </p>
         <div className="pt-2">

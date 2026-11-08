@@ -23,7 +23,7 @@ export default function Projects() {
               href={personalInfo.contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-white/15 dark:border-white/15 light:border-black/15 bg-white/5 dark:bg-white/5 light:bg-black/5 hover:border-blue-500 hover:bg-blue-500/10 text-white dark:text-white light:text-zinc-900 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-zinc-300 dark:border-white/15 bg-white dark:bg-white/5 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 text-zinc-900 dark:text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-sm"
             >
               <Github className="w-4 h-4" />
               <span>Explore GitHub (@{personalInfo.contact.githubUsername})</span>
@@ -45,7 +45,7 @@ export default function Projects() {
             href={personalInfo.contact.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl border border-white/15 dark:border-white/15 light:border-black/15 bg-white/5 dark:bg-white/5 light:bg-black/5 text-white dark:text-white light:text-zinc-900 font-mono text-xs font-semibold uppercase tracking-wider"
+            className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl border border-zinc-300 dark:border-white/15 bg-white dark:bg-white/5 text-zinc-900 dark:text-white font-mono text-xs font-semibold uppercase tracking-wider shadow-sm"
           >
             <Github className="w-4 h-4" />
             <span>Explore All on GitHub</span>

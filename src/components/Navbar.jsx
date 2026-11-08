@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Download, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { personalInfo } from '../data/personalInfo';
 
@@ -66,7 +66,7 @@ export default function Navbar({ theme, toggleTheme }) {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'py-3.5 bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl border-b border-white/10 dark:border-white/10 light:border-black/10 shadow-lg'
+            ? 'py-3.5 bg-white/85 dark:bg-black/85 backdrop-blur-xl border-b border-zinc-200/80 dark:border-white/10 shadow-sm dark:shadow-lg'
             : 'py-5 bg-transparent'
         }`}
       >
@@ -83,21 +83,21 @@ export default function Navbar({ theme, toggleTheme }) {
               }}
               className="group flex items-center gap-3 focus:outline-none"
             >
-              <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-white/15 text-white flex items-center justify-center font-editorial font-bold text-sm tracking-wider group-hover:border-blue-500 transition-colors shadow-sm">
+              <div className="w-9 h-9 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-white/15 text-zinc-900 dark:text-white flex items-center justify-center font-display font-black text-sm tracking-wider group-hover:border-blue-500 transition-colors shadow-sm">
                 PR
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-bold tracking-tight text-white dark:text-white light:text-zinc-950 font-editorial uppercase">
+                <span className="text-sm font-bold tracking-tight text-zinc-950 dark:text-white font-display uppercase">
                   Prajval R Shunty
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-zinc-400 dark:text-zinc-400 light:text-zinc-600 -mt-0.5">
+                <span className="text-[10px] font-mono tracking-widest text-zinc-500 dark:text-zinc-400 -mt-0.5">
                   DATA SCIENCE &amp; AI
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 p-1 rounded-full border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/60 dark:bg-zinc-950/60 light:bg-zinc-100/80 backdrop-blur-md">
+            <nav className="hidden lg:flex items-center gap-1 p-1 rounded-full border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 shadow-sm backdrop-blur-md">
               {navItems.map((item) => {
                 const isActive = isHome && activeSection === item.id;
                 return (
@@ -108,7 +108,7 @@ export default function Navbar({ theme, toggleTheme }) {
                     className={`px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
                       isActive
                         ? 'bg-blue-600 text-white font-semibold shadow-sm'
-                        : 'text-zinc-400 hover:text-white dark:hover:text-white light:hover:text-black hover:bg-white/5'
+                        : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5'
                     }`}
                   >
                     {item.label}
@@ -124,7 +124,7 @@ export default function Navbar({ theme, toggleTheme }) {
               <a
                 href={personalInfo.resume.downloadUrl}
                 download={personalInfo.resume.filename}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider bg-white/10 dark:bg-white/10 light:bg-black/10 hover:bg-blue-600 hover:text-white text-zinc-200 dark:text-zinc-200 light:text-zinc-900 border border-white/10 dark:border-white/10 light:border-black/10 transition-all duration-200 font-semibold"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider bg-zinc-100 dark:bg-white/10 hover:bg-blue-600 hover:text-white text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/10 transition-all duration-200 font-semibold shadow-sm"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Resume</span>
@@ -138,7 +138,7 @@ export default function Navbar({ theme, toggleTheme }) {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
-                className="p-2 rounded-xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-900/80 text-zinc-300 hover:text-white"
+                className="p-2 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900/80 text-zinc-800 dark:text-zinc-300 hover:text-blue-600"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -157,21 +157,21 @@ export default function Navbar({ theme, toggleTheme }) {
             transition={{ duration: 0.25 }}
             className="fixed inset-x-0 top-16 z-30 p-4 lg:hidden"
           >
-            <div className="rounded-2xl border border-white/15 dark:border-white/15 light:border-black/15 bg-zinc-950/95 dark:bg-zinc-950/95 light:bg-white/95 backdrop-blur-2xl p-6 shadow-2xl space-y-4">
+            <div className="rounded-2xl border border-zinc-200 dark:border-white/15 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-2xl p-6 shadow-2xl space-y-4">
               <div className="space-y-1">
                 {navItems.map((item) => (
                   <a
                     key={item.id}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item)}
-                    className="block px-4 py-2.5 rounded-xl text-sm font-mono uppercase tracking-wider text-zinc-300 dark:text-zinc-300 light:text-zinc-800 hover:bg-blue-600 hover:text-white transition-colors"
+                    className="block px-4 py-2.5 rounded-xl text-sm font-mono uppercase tracking-wider text-zinc-800 dark:text-zinc-300 hover:bg-blue-600 hover:text-white transition-colors"
                   >
                     {item.label}
                   </a>
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <div className="pt-4 border-t border-zinc-200 dark:border-white/10">
                 <a
                   href={personalInfo.resume.downloadUrl}
                   download={personalInfo.resume.filename}

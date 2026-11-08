@@ -83,12 +83,12 @@ export default function CustomCursor() {
         }}
         animate={{
           scale: isHovered ? 2.2 : 1,
-          borderColor: isHovered ? 'rgba(59, 130, 246, 0.7)' : 'rgba(255, 255, 255, 0.25)',
-          backgroundColor: isHovered ? 'rgba(59, 130, 246, 0.08)' : 'transparent',
+          borderColor: isHovered ? 'rgba(59, 130, 246, 0.85)' : undefined,
+          backgroundColor: isHovered ? 'rgba(59, 130, 246, 0.1)' : 'transparent',
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.2 }}
-        className="w-8 h-8 rounded-full border border-white/25 dark:border-white/25"
+        className="w-8 h-8 rounded-full border border-zinc-500/40 dark:border-white/30 transition-colors duration-300"
       />
     </div>
   );

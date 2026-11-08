@@ -33,12 +33,12 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6 text-zinc-300 dark:text-zinc-300 light:text-zinc-700 text-base sm:text-lg font-normal leading-relaxed font-sans"
+            className="lg:col-span-7 space-y-6 text-zinc-700 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed font-sans"
           >
             {extendedBio.map((paragraph, idx) => (
               <p key={idx} className="relative">
                 {idx === 0 && (
-                  <span className="text-blue-500 font-mono text-xs block mb-1 font-semibold uppercase tracking-wider">
+                  <span className="text-blue-600 dark:text-blue-400 font-mono text-xs block mb-1 font-semibold uppercase tracking-wider">
                     // Academic Journey &amp; Focus
                   </span>
                 )}
@@ -47,22 +47,22 @@ export default function About() {
             ))}
 
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-5 rounded-2xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/60 dark:bg-zinc-950/60 light:bg-white backdrop-blur-md">
-                <BrainCircuit className="w-5 h-5 text-blue-400 mb-2" />
-                <h4 className="text-sm font-bold text-white dark:text-white light:text-zinc-900 font-display">
+              <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-none">
+                <BrainCircuit className="w-5 h-5 text-blue-600 dark:text-blue-400 mb-2" />
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-display">
                   Data &amp; Intelligence
                 </h4>
-                <p className="text-xs text-zinc-400 dark:text-zinc-400 light:text-zinc-600 mt-1 font-light leading-relaxed">
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 font-light leading-relaxed">
                   Focusing on probability, statistics, tabular modeling, and feature engineering with Python and scikit-learn.
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/60 dark:bg-zinc-950/60 light:bg-white backdrop-blur-md">
-                <Sparkles className="w-5 h-5 text-indigo-400 mb-2" />
-                <h4 className="text-sm font-bold text-white dark:text-white light:text-zinc-900 font-display">
+              <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-none">
+                <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mb-2" />
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-display">
                   Software Engineering
                 </h4>
-                <p className="text-xs text-zinc-400 dark:text-zinc-400 light:text-zinc-600 mt-1 font-light leading-relaxed">
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 font-light leading-relaxed">
                   Practicing clean modular architecture, Git version control, and building reactive web frontends.
                 </p>
               </div>
@@ -71,13 +71,13 @@ export default function About() {
 
           {/* Quick Info Panel (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/80 dark:bg-zinc-950/80 light:bg-white p-6 sm:p-8 backdrop-blur-md shadow-xl hover:border-white/20 transition-all duration-300">
-              <div className="flex items-center justify-between pb-5 mb-5 border-b border-white/10 dark:border-white/10 light:border-black/10">
+            <div className="rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/80 p-6 sm:p-8 backdrop-blur-md shadow-sm dark:shadow-xl hover:border-blue-500/30 transition-all duration-300">
+              <div className="flex items-center justify-between pb-5 mb-5 border-b border-zinc-200 dark:border-white/10">
                 <div>
-                  <span className="text-[10px] font-mono tracking-widest uppercase text-blue-400 font-semibold block mb-1">
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-blue-600 dark:text-blue-400 font-semibold block mb-1">
                     ACADEMIC PROFILE
                   </span>
-                  <h3 className="text-xl font-bold font-display text-white dark:text-white light:text-zinc-900 uppercase">
+                  <h3 className="text-xl font-bold font-display text-zinc-900 dark:text-white uppercase">
                     Information Dossier
                   </h3>
                 </div>
@@ -91,17 +91,17 @@ export default function About() {
                   return (
                     <div
                       key={i}
-                      className="flex items-start justify-between py-2 border-b border-white/5 dark:border-white/5 light:border-black/5 text-sm"
+                      className="flex items-start justify-between py-2 border-b border-zinc-200 dark:border-white/5 text-sm"
                     >
-                      <div className="flex items-center gap-2.5 text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-mono text-xs">
-                        <Icon className="w-4 h-4 text-blue-400/80" />
+                      <div className="flex items-center gap-2.5 text-zinc-600 dark:text-zinc-400 font-mono text-xs">
+                        <Icon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                         <span>{item.label}</span>
                       </div>
                       <span
                         className={`font-medium text-right text-xs sm:text-sm ${
                           item.highlight
-                            ? 'text-emerald-400 font-mono font-bold'
-                            : 'text-white dark:text-white light:text-zinc-900'
+                            ? 'text-emerald-600 dark:text-emerald-400 font-mono font-bold'
+                            : 'text-zinc-900 dark:text-white'
                         }`}
                       >
                         {item.value}
@@ -112,7 +112,7 @@ export default function About() {
               </div>
 
               {/* Verified academic banner */}
-              <div className="mt-6 p-4 rounded-xl bg-white/[0.03] dark:bg-white/[0.03] light:bg-black/[0.03] border border-white/5 dark:border-white/5 light:border-black/10 text-xs text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-mono leading-relaxed">
+              <div className="mt-6 p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/5 text-xs text-zinc-600 dark:text-zinc-400 font-mono leading-relaxed">
                 Verified B.E. Computer Science &amp; Engineering (Data Science) student (2025–2029) at BIET Davangere.
               </div>
             </div>

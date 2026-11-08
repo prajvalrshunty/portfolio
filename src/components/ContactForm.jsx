@@ -125,7 +125,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="relative rounded-2xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/70 dark:bg-zinc-950/70 light:bg-white p-7 sm:p-10 backdrop-blur-md">
+    <div className="relative rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/70 p-7 sm:p-10 backdrop-blur-md shadow-sm dark:shadow-xl">
       <form onSubmit={handleSubmit} noValidate className="space-y-6">
         {/* Spam protection trap - hidden from normal users */}
         <input
@@ -143,7 +143,7 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="name"
-              className="block text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-400 light:text-zinc-600 mb-2 font-medium"
+              className="block text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-2 font-medium"
             >
               Full Name <span className="text-blue-500">*</span>
             </label>
@@ -155,14 +155,14 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="e.g. Jane Doe"
               disabled={status === 'sending'}
-              className={`w-full px-4 py-3 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-50 border text-white dark:text-white light:text-zinc-900 placeholder-zinc-400 dark:placeholder-zinc-400 light:placeholder-zinc-600 text-sm focus:outline-none transition-all duration-200 ${
+              className={`w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/80 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
                 errors.name
                   ? 'border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                  : 'border-white/10 dark:border-white/10 light:border-black/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
+                  : 'border-zinc-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
               }`}
             />
             {errors.name && (
-              <p className="mt-1.5 text-xs text-red-400 font-mono flex items-center gap-1">
+              <p className="mt-1.5 text-xs text-red-500 dark:text-red-400 font-mono flex items-center gap-1">
                 <AlertCircle className="w-3 h-3" />
                 {errors.name}
               </p>
@@ -173,7 +173,7 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="email"
-              className="block text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-400 light:text-zinc-600 mb-2 font-medium"
+              className="block text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-2 font-medium"
             >
               Email Address <span className="text-blue-500">*</span>
             </label>
@@ -185,14 +185,14 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="e.g. jane@company.com"
               disabled={status === 'sending'}
-              className={`w-full px-4 py-3 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-50 border text-white dark:text-white light:text-zinc-900 placeholder-zinc-400 dark:placeholder-zinc-400 light:placeholder-zinc-600 text-sm focus:outline-none transition-all duration-200 ${
+              className={`w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/80 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
                 errors.email
                   ? 'border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                  : 'border-white/10 dark:border-white/10 light:border-black/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
+                  : 'border-zinc-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
               }`}
             />
             {errors.email && (
-              <p className="mt-1.5 text-xs text-red-400 font-mono flex items-center gap-1">
+              <p className="mt-1.5 text-xs text-red-500 dark:text-red-400 font-mono flex items-center gap-1">
                 <AlertCircle className="w-3 h-3" />
                 {errors.email}
               </p>
@@ -204,7 +204,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="subject"
-            className="block text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-400 light:text-zinc-600 mb-2 font-medium"
+            className="block text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-2 font-medium"
           >
             Subject <span className="text-blue-500">*</span>
           </label>
@@ -216,14 +216,14 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="e.g. Internship Inquiry / Technical Collaboration"
             disabled={status === 'sending'}
-            className={`w-full px-4 py-3 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-50 border text-white dark:text-white light:text-zinc-900 placeholder-zinc-400 dark:placeholder-zinc-400 light:placeholder-zinc-600 text-sm focus:outline-none transition-all duration-200 ${
+            className={`w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/80 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
               errors.subject
                 ? 'border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                : 'border-white/10 dark:border-white/10 light:border-black/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
+                : 'border-zinc-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
             }`}
           />
           {errors.subject && (
-            <p className="mt-1.5 text-xs text-red-400 font-mono flex items-center gap-1">
+            <p className="mt-1.5 text-xs text-red-500 dark:text-red-400 font-mono flex items-center gap-1">
               <AlertCircle className="w-3 h-3" />
               {errors.subject}
             </p>
@@ -234,7 +234,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="message"
-            className="block text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-400 light:text-zinc-600 mb-2 font-medium"
+            className="block text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-2 font-medium"
           >
             Message <span className="text-blue-500">*</span>
           </label>
@@ -246,14 +246,14 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Tell me about your role, project, or opportunity..."
             disabled={status === 'sending'}
-            className={`w-full px-4 py-3 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-50 border text-white dark:text-white light:text-zinc-900 placeholder-zinc-400 dark:placeholder-zinc-400 light:placeholder-zinc-600 text-sm focus:outline-none transition-all duration-200 resize-none ${
+            className={`w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/80 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 resize-none ${
               errors.message
                 ? 'border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                : 'border-white/10 dark:border-white/10 light:border-black/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
+                : 'border-zinc-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
             }`}
           />
           {errors.message && (
-            <p className="mt-1.5 text-xs text-red-400 font-mono flex items-center gap-1">
+            <p className="mt-1.5 text-xs text-red-500 dark:text-red-400 font-mono flex items-center gap-1">
               <AlertCircle className="w-3 h-3" />
               {errors.message}
             </p>
@@ -267,12 +267,12 @@ export default function ContactForm() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono flex items-start gap-3"
+              className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono flex items-start gap-3"
             >
               <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold">Message delivered successfully!</p>
-                <p className="text-emerald-300/80 mt-0.5">
+                <p className="text-emerald-700 dark:text-emerald-300/80 mt-0.5">
                   Thank you for reaching out. I have received your email and will respond promptly.
                 </p>
               </div>
@@ -284,17 +284,17 @@ export default function ContactForm() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono flex items-start gap-3"
+              className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-mono flex items-start gap-3"
             >
               <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold">Unable to transmit message</p>
-                <p className="text-red-300/80 mt-0.5 leading-relaxed">{errorMessage}</p>
+                <p className="text-red-700 dark:text-red-300/80 mt-0.5 leading-relaxed">{errorMessage}</p>
                 <a
                   href={`mailto:${personalInfo.contact.email}?subject=${encodeURIComponent(
                     formData.subject || 'Direct Inquiry'
                   )}&body=${encodeURIComponent(formData.message)}`}
-                  className="inline-block mt-2 underline text-white font-bold hover:text-blue-300"
+                  className="inline-block mt-2 underline text-red-600 dark:text-white font-bold hover:text-red-800 dark:hover:text-blue-300"
                 >
                   Click here to email directly via your mail client &rarr;
                 </a>

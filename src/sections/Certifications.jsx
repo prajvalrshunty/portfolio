@@ -28,17 +28,17 @@ export default function Certifications() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="p-8 sm:p-12 rounded-3xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/60 dark:bg-zinc-950/60 light:bg-white backdrop-blur-md shadow-xl text-center max-w-4xl mx-auto"
+            className="p-8 sm:p-12 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-xl text-center max-w-4xl mx-auto"
           >
-            <div className="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-400 mx-auto flex items-center justify-center border border-blue-500/20 mb-6">
+            <div className="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 mx-auto flex items-center justify-center border border-blue-500/20 mb-6">
               <Compass className="w-7 h-7" />
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-bold text-white dark:text-white light:text-zinc-900 font-editorial uppercase">
+            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white font-editorial uppercase">
               {learningStatus.message}
             </h3>
 
-            <p className="mt-4 text-sm sm:text-base text-zinc-400 dark:text-zinc-400 light:text-zinc-600 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed font-light">
               {learningStatus.subMessage}
             </p>
 
@@ -47,23 +47,23 @@ export default function Certifications() {
               {learningStatus.learningPillars.map((pillar, i) => (
                 <div
                   key={i}
-                  className="p-5 rounded-xl border border-white/5 dark:border-white/5 light:border-black/5 bg-zinc-900/60 dark:bg-zinc-900/60 light:bg-zinc-50"
+                  className="p-5 rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-zinc-900/60"
                 >
-                  <span className="text-[10px] font-mono text-blue-400 uppercase tracking-widest block mb-2 font-semibold">
+                  <span className="text-[10px] font-mono text-blue-600 dark:text-blue-400 uppercase tracking-widest block mb-2 font-semibold">
                     // Pillar 0{i + 1}
                   </span>
-                  <h4 className="text-sm font-bold text-white dark:text-white light:text-zinc-900 font-mono mb-2">
+                  <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono mb-2">
                     {pillar.title}
                   </h4>
-                  <p className="text-xs text-zinc-400 dark:text-zinc-400 light:text-zinc-600 leading-relaxed font-light">
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-light">
                     {pillar.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/5 dark:border-white/5 light:border-black/5 flex items-center justify-center gap-2 text-xs font-mono text-zinc-400 dark:text-zinc-400 light:text-zinc-600">
-              <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
+            <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-white/5 flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
               <span>Certificates, workshops, and hackathons will be updated dynamically upon completion.</span>
             </div>
           </motion.div>
@@ -78,7 +78,7 @@ export default function Certifications() {
                   className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
                     activeTab === cat.id
                       ? 'bg-blue-600 text-white font-semibold'
-                      : 'bg-zinc-900/60 text-zinc-400 hover:text-white'
+                      : 'bg-zinc-100 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
                   }`}
                 >
                   {cat.label}
@@ -90,21 +90,21 @@ export default function Certifications() {
               {filteredCerts.map((cert) => (
                 <div
                   key={cert.id}
-                  className="p-6 rounded-2xl border border-white/10 bg-zinc-950/70 backdrop-blur-md flex flex-col justify-between"
+                  className="p-6 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/70 backdrop-blur-md flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-3">
+                    <div className="flex items-center justify-between text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-3">
                       <span>{cert.issuer}</span>
                       <span>{cert.date}</span>
                     </div>
-                    <h4 className="text-lg font-bold text-white mb-2">{cert.title}</h4>
+                    <h4 className="text-lg font-bold text-zinc-900 dark:text-white mb-2">{cert.title}</h4>
                   </div>
                   {cert.verificationUrl && (
                     <a
                       href={cert.verificationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-blue-400 hover:underline"
+                      className="mt-4 pt-3 border-t border-zinc-200 dark:border-white/10 flex items-center justify-between text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline"
                     >
                       <span>Verify Credential</span>
                       <ExternalLink className="w-3.5 h-3.5" />

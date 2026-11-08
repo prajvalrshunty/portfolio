@@ -8,19 +8,22 @@ export default function ThemeToggle({ theme, toggleTheme }) {
   return (
     <button
       onClick={toggleTheme}
+      type="button"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="relative p-2 rounded-full border border-white/10 dark:border-white/10 light:border-black/10 bg-white/5 dark:bg-white/5 light:bg-black/5 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+      className="relative p-2.5 rounded-full border border-zinc-300 dark:border-white/10 bg-zinc-100/90 dark:bg-white/5 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 cursor-pointer shadow-sm"
     >
       <motion.div
-        initial={false}
-        animate={{ rotate: isDark ? 0 : 180, scale: 1 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="flex items-center justify-center text-zinc-300 dark:text-zinc-200 light:text-zinc-800"
+        key={theme}
+        initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+        animate={{ rotate: 0, opacity: 1, scale: 1 }}
+        exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.2 }}
+        className="flex items-center justify-center"
       >
         {isDark ? (
-          <Sun className="w-4 h-4 text-amber-300 transition-colors" />
+          <Sun className="w-4 h-4 text-amber-300" />
         ) : (
-          <Moon className="w-4 h-4 text-indigo-500 transition-colors" />
+          <Moon className="w-4 h-4 text-blue-600" />
         )}
       </motion.div>
     </button>
