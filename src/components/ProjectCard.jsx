@@ -85,21 +85,21 @@ export default function ProjectCard({ project }) {
               <CardItem translateZ="30">
                 <Link
                   to={`/project/${project.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 font-semibold group/btn"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 font-semibold group/btn py-2 px-1 active:scale-95 transition-transform"
                 >
                   <span>View Case Study</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                 </Link>
               </CardItem>
 
-              <CardItem translateZ="30" className="flex items-center gap-2">
+              <CardItem translateZ="30" className="flex items-center gap-1 sm:gap-2">
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="View Source on GitHub"
-                    className="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors"
+                    className="p-2.5 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 active:scale-90 transition-all touch-manipulation"
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -110,7 +110,7 @@ export default function ProjectCard({ project }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="View Live Project"
-                    className="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-colors"
+                    className="p-2.5 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 active:scale-90 transition-all touch-manipulation"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>

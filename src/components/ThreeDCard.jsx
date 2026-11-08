@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useRef } from 'react';
+import React, { createContext, useState, useContext, useRef, useEffect } from 'react';
 
 const MouseEnterContext = createContext([false, () => {}]);
 const MousePositionContext = createContext({ x: 0, y: 0 });
@@ -14,6 +14,7 @@ export const CardContainer = ({
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
 
+  // Desktop mouse move handler
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;
     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
@@ -43,6 +44,67 @@ export const CardContainer = ({
     setRotateY(0);
   };
 
+  // Mobile touch handlers for tactile interaction
+  const handleTouchStart = (e) => {
+    if (!containerRef.current || e.touches.length === 0) return;
+    setIsMouseEntered(true);
+    const touch = e.touches[0];
+    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
+    const rawX = (touch.clientX - left - width / 2) / 45;
+    const rawY = (touch.clientY - top - height / 2) / 45;
+    setRotateX(-Math.max(-4, Math.min(4, rawY)));
+    setRotateY(Math.max(-4, Math.min(4, rawX)));
+    setMousePos({
+      x: touch.clientX - left,
+      y: touch.clientY - top,
+    });
+  };
+
+  const handleTouchMove = (e) => {
+    if (!containerRef.current || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
+    const rawX = (touch.clientX - left - width / 2) / 45;
+    const rawY = (touch.clientY - top - height / 2) / 45;
+    setRotateX(-Math.max(-4, Math.min(4, rawY)));
+    setRotateY(Math.max(-4, Math.min(4, rawX)));
+    setMousePos({
+      x: touch.clientX - left,
+      y: touch.clientY - top,
+    });
+  };
+
+  const handleTouchEnd = () => {
+    setIsMouseEntered(false);
+    setRotateX(0);
+    setRotateY(0);
+  };
+
+  // Mobile device orientation (gyroscope tilt) when not actively touched
+  useEffect(() => {
+    const handleOrientation = (e) => {
+      if (isMouseEntered) return;
+      if (e.gamma === null || e.beta === null) return;
+      if (typeof window !== 'undefined' && window.innerWidth > 768) return;
+
+      const clampedGamma = Math.max(-3.5, Math.min(3.5, e.gamma / 7));
+      const clampedBeta = Math.max(-3.5, Math.min(3.5, (e.beta - 45) / 7));
+
+      setRotateY(clampedGamma);
+      setRotateX(-clampedBeta);
+    };
+
+    if (typeof window !== 'undefined' && window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+    }
+
+    return () => {
+      if (typeof window !== 'undefined' && window.DeviceOrientationEvent) {
+        window.removeEventListener('deviceorientation', handleOrientation);
+      }
+    };
+  }, [isMouseEntered]);
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <MousePositionContext.Provider value={mousePos}>
@@ -55,12 +117,14 @@ export const CardContainer = ({
             onMouseEnter={handleMouseEnter}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={`relative transition-transform duration-300 ease-out ${className}`}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={handleTouchEnd}
+            className={`relative transition-transform duration-300 ease-out select-none ${className}`}
             style={{
               transformStyle: "preserve-3d",
-              transform: isMouseEntered
-                ? `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`
-                : "rotateY(0deg) rotateX(0deg)",
+              transform: `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
             }}
           >
             {children}

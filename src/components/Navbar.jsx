@@ -135,54 +135,70 @@ export default function Navbar({ theme, toggleTheme }) {
             <div className="flex sm:hidden items-center gap-2">
               <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
-                className="p-2 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900/80 text-zinc-800 dark:text-zinc-300 hover:text-blue-600"
+                className="p-2.5 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900/80 text-zinc-800 dark:text-zinc-300 hover:text-blue-600 active:scale-95 transition-all"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Backdrop */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-16 z-30 p-4 lg:hidden"
-          >
-            <div className="rounded-2xl border border-zinc-200 dark:border-white/15 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-2xl p-6 shadow-2xl space-y-4">
-              <div className="space-y-1">
-                {navItems.map((item) => (
-                  <a
-                    key={item.id}
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item)}
-                    className="block px-4 py-2.5 rounded-xl text-sm font-mono uppercase tracking-wider text-zinc-800 dark:text-zinc-300 hover:bg-blue-600 hover:text-white transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
+          <>
+            {/* Backdrop click outside to dismiss */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm lg:hidden"
+            />
 
-              <div className="pt-4 border-t border-zinc-200 dark:border-white/10">
-                <a
-                  href={personalInfo.resume.downloadUrl}
-                  download={personalInfo.resume.filename}
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white font-mono text-xs uppercase tracking-wider font-semibold"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Download Resume PDF</span>
-                </a>
+            <motion.div
+              initial={{ opacity: 0, y: -20, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.97 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-x-4 top-20 z-40 lg:hidden"
+            >
+              <div className="rounded-2xl border border-zinc-200 dark:border-white/15 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-2xl p-6 shadow-2xl space-y-4">
+                <div className="space-y-1">
+                  {navItems.map((item) => (
+                    <motion.a
+                      key={item.id}
+                      whileTap={{ scale: 0.97 }}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item)}
+                      className="block px-4 py-3 rounded-xl text-sm font-mono uppercase tracking-wider text-zinc-800 dark:text-zinc-300 hover:bg-blue-600 hover:text-white active:bg-blue-600 active:text-white transition-colors"
+                    >
+                      {item.label}
+                    </motion.a>
+                  ))}
+                </div>
+
+                <div className="pt-4 border-t border-zinc-200 dark:border-white/10">
+                  <motion.a
+                    whileTap={{ scale: 0.97 }}
+                    href={personalInfo.resume.downloadUrl}
+                    download={personalInfo.resume.filename}
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 active:bg-blue-700 text-white font-mono text-xs uppercase tracking-wider font-semibold"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>Download Resume PDF</span>
+                  </motion.a>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

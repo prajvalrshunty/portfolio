@@ -27,29 +27,33 @@ export default function Skills() {
 
         {/* Filter Navigation Tabs */}
         <div className="flex flex-wrap items-center gap-2 mb-10">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveCategory('all')}
-            className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 select-none ${
               activeCategory === 'all'
-                ? 'bg-blue-600 text-white font-semibold shadow-md'
+                ? 'bg-blue-600 text-white font-semibold shadow-md shadow-blue-500/20'
                 : 'bg-zinc-100 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-white/5'
             }`}
           >
             All Skills ({allSkills.length})
-          </button>
+          </motion.button>
 
           {skillCategories.map((cat) => (
-            <button
+            <motion.button
               key={cat.id}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
+              className={`px-4 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 select-none ${
                 activeCategory === cat.id
-                  ? 'bg-blue-600 text-white font-semibold shadow-md'
+                  ? 'bg-blue-600 text-white font-semibold shadow-md shadow-blue-500/20'
                   : 'bg-zinc-100 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-white/5'
               }`}
             >
               {cat.title} ({cat.skills.length})
-            </button>
+            </motion.button>
           ))}
         </div>
 

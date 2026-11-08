@@ -47,7 +47,11 @@ export default function About() {
             ))}
 
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-none">
+              <motion.div
+                whileHover={{ y: -3, scale: 1.015 }}
+                whileTap={{ scale: 0.98 }}
+                className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-none hover:border-blue-500/40 transition-colors"
+              >
                 <BrainCircuit className="w-5 h-5 text-blue-600 dark:text-blue-400 mb-2" />
                 <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-display">
                   Data &amp; Intelligence
@@ -55,9 +59,13 @@ export default function About() {
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 font-light leading-relaxed">
                   Focusing on probability, statistics, tabular modeling, and feature engineering with Python and scikit-learn.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-none">
+              <motion.div
+                whileHover={{ y: -3, scale: 1.015 }}
+                whileTap={{ scale: 0.98 }}
+                className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-none hover:border-indigo-500/40 transition-colors"
+              >
                 <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mb-2" />
                 <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-display">
                   Software Engineering
@@ -65,7 +73,7 @@ export default function About() {
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 font-light leading-relaxed">
                   Practicing clean modular architecture, Git version control, and building reactive web frontends.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 

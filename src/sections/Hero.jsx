@@ -84,28 +84,34 @@ export default function Hero() {
               className="pt-3 flex flex-wrap items-center gap-4 sm:gap-6"
             >
               {/* Primary Shimmer CTA */}
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={scrollToWork}
-                className="relative inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold uppercase tracking-widest shadow-[0_0_30px_rgba(59,130,246,0.35)] transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="relative inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold uppercase tracking-widest shadow-[0_0_30px_rgba(59,130,246,0.35)] transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-400 select-none cursor-pointer"
               >
                 <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 group-hover:left-[100%] transition-all duration-1000" />
                 <span className="relative z-10">EXPLORE MY WORK</span>
                 <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
-              </button>
+              </motion.button>
 
               {/* Secondary CTA */}
-              <a
+              <motion.a
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.95 }}
                 href={resume.downloadUrl}
                 download={resume.filename}
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border border-zinc-300 dark:border-white/15 bg-white dark:bg-white/5 hover:border-blue-500 hover:bg-zinc-50 dark:hover:bg-blue-500/10 text-zinc-900 dark:text-white font-mono text-xs font-semibold uppercase tracking-widest transition-all duration-200 shadow-sm"
+                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border border-zinc-300 dark:border-white/15 bg-white dark:bg-white/5 hover:border-blue-500 hover:bg-zinc-50 dark:hover:bg-blue-500/10 text-zinc-900 dark:text-white font-mono text-xs font-semibold uppercase tracking-widest transition-all duration-200 shadow-sm select-none"
               >
                 <Download className="w-4 h-4" />
                 <span>DOWNLOAD RESUME</span>
-              </a>
+              </motion.a>
 
               {/* Quick Socials */}
               <div className="flex items-center gap-3 pl-2 sm:pl-4 border-l border-zinc-200 dark:border-white/10">
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
                   href={contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -113,8 +119,10 @@ export default function Hero() {
                   className="p-3 rounded-xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
                 >
                   <Github className="w-4 h-4" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
                   href={contact.linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -122,14 +130,16 @@ export default function Hero() {
                   className="p-3 rounded-xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
                 >
                   <Linkedin className="w-4 h-4" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
                   href={`mailto:${contact.email}`}
                   aria-label="Email Prajval"
                   className="p-3 rounded-xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
                 >
                   <Mail className="w-4 h-4" />
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           </div>

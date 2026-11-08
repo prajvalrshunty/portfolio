@@ -78,12 +78,14 @@ export default function Experience() {
               </span>
               <div className="flex flex-wrap gap-2">
                 {targetRoles.map((role, i) => (
-                  <span
+                  <motion.span
                     key={i}
-                    className="px-3.5 py-1.5 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-mono font-medium"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-3.5 py-1.5 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-mono font-medium select-none cursor-default"
                   >
                     {role}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -91,9 +93,11 @@ export default function Experience() {
             {/* What I bring to teams */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
               {capabilities.map((item, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="p-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-zinc-900/50"
+                  whileHover={{ scale: 1.015, y: -2 }}
+                  whileTap={{ scale: 0.985 }}
+                  className="p-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-zinc-900/50 hover:border-blue-500/30 transition-colors"
                 >
                   <h4 className="text-xs font-mono font-bold text-zinc-900 dark:text-white uppercase flex items-center gap-2 mb-1">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
@@ -102,19 +106,21 @@ export default function Experience() {
                   <p className="text-xs text-zinc-600 dark:text-zinc-400 font-light leading-relaxed pl-5.5 font-sans">
                     {item.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* CTA Trigger */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold uppercase tracking-widest shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-200 group"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold uppercase tracking-widest shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-200 group select-none cursor-pointer"
               >
                 <span>LET'S CONNECT</span>
                 <Send className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-              </button>
+              </motion.button>
 
               <span className="text-xs font-mono text-zinc-600 dark:text-zinc-400">
                 Available for remote or in-person student internships

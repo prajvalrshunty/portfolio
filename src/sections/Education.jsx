@@ -35,7 +35,11 @@ export default function Education() {
               />
 
               {/* Card Container */}
-              <div className="p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/70 backdrop-blur-md shadow-sm dark:shadow-xl hover:border-blue-500/40 transition-all duration-300">
+              <motion.div
+                whileHover={{ x: 4, scale: 1.005 }}
+                whileTap={{ scale: 0.99 }}
+                className="p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/70 backdrop-blur-md shadow-sm dark:shadow-xl hover:border-blue-500/40 transition-all duration-300"
+              >
                 {/* Header Strip */}
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-2">
@@ -94,17 +98,19 @@ export default function Education() {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {item.coreSubjects.map((sub, i) => (
-                        <span
+                        <motion.span
                           key={i}
-                          className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900/90 text-xs font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/5"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900/90 text-xs font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/5 hover:border-blue-500/30 transition-colors"
                         >
                           {sub}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>
                 )}
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>

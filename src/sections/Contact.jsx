@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Mail, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, MapPin, Copy, Check } from 'lucide-react';
 import { Github, Linkedin } from '../components/Icons';
 import SectionHeading from '../components/SectionHeading';
 import ContactForm from '../components/ContactForm';
@@ -8,6 +8,15 @@ import { personalInfo } from '../data/personalInfo';
 
 export default function Contact() {
   const { contact } = personalInfo;
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(contact.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   return (
     <section id="contact" className="py-24 sm:py-32 relative bg-grain">
@@ -42,26 +51,48 @@ export default function Contact() {
 
             {/* Direct Channel Cards */}
             <div className="space-y-3">
-              {/* Email */}
-              <a
-                href={`mailto:${contact.email}`}
-                className="group p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/70 hover:border-blue-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-all duration-200 flex items-center gap-4 shadow-sm dark:shadow-none block"
+              {/* Email with interactive Copy button */}
+              <motion.div
+                whileHover={{ x: 2, scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+                className="group p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/70 hover:border-blue-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-all duration-200 flex items-center justify-between shadow-sm dark:shadow-none"
               >
-                <div className="p-3 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors border border-blue-500/20">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div className="overflow-hidden">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 block">
-                    Direct Email
-                  </span>
-                  <span className="text-sm font-mono font-medium text-zinc-900 dark:text-white truncate block group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {contact.email}
-                  </span>
-                </div>
-              </a>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="flex items-center gap-4 overflow-hidden flex-1"
+                >
+                  <div className="p-3 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors border border-blue-500/20 shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 block">
+                      Direct Email (Click to open)
+                    </span>
+                    <span className="text-sm font-mono font-medium text-zinc-900 dark:text-white truncate block group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {contact.email}
+                    </span>
+                  </div>
+                </a>
+
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleCopyEmail}
+                  aria-label="Copy email address"
+                  className="p-2.5 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shrink-0 ml-2"
+                >
+                  {copied ? (
+                    <Check className="w-4 h-4 text-emerald-500" />
+                  ) : (
+                    <Copy className="w-4 h-4" />
+                  )}
+                </motion.button>
+              </motion.div>
 
               {/* LinkedIn */}
-              <a
+              <motion.a
+                whileHover={{ x: 2, scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
                 href={contact.linkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -78,10 +109,12 @@ export default function Contact() {
                     linkedin.com/in/prajval-r-shunty-139a47385
                   </span>
                 </div>
-              </a>
+              </motion.a>
 
               {/* GitHub */}
-              <a
+              <motion.a
+                whileHover={{ x: 2, scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -98,7 +131,7 @@ export default function Contact() {
                     github.com/prajvalrshunty
                   </span>
                 </div>
-              </a>
+              </motion.a>
 
               {/* Geographic Location */}
               <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-100/50 dark:bg-zinc-950/40 flex items-center gap-4">

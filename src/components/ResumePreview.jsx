@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, FileText, ExternalLink, CheckCircle, Info } from 'lucide-react';
+import { Download, FileText, ExternalLink, CheckCircle, Info, Copy, Check } from 'lucide-react';
 import { personalInfo } from '../data/personalInfo';
 
 export default function ResumePreview() {
   const { resume, name, title, academics } = personalInfo;
+  const [copiedLink, setCopiedLink] = useState(false);
+
+  const handleCopyLink = () => {
+    const fullUrl = `${window.location.origin}${resume.downloadUrl}`;
+    navigator.clipboard.writeText(fullUrl);
+    setCopiedLink(true);
+    setTimeout(() => setCopiedLink(false), 2500);
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -149,22 +157,43 @@ export default function ResumePreview() {
             My resume contains up-to-date academic records from BIET Davangere, coursework highlights, and verified technical competencies.
           </p>
 
-          {/* Primary Action Button */}
-          <div className="mt-7">
-            <a
+          {/* Primary Action Buttons */}
+          <div className="mt-7 space-y-3">
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
               href={resume.downloadUrl}
               download={resume.filename}
-              className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono font-semibold text-sm tracking-wider uppercase shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono font-semibold text-sm tracking-wider uppercase shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-blue-400 select-none cursor-pointer"
             >
               <Download className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
               <span>DOWNLOAD RESUME PDF</span>
-            </a>
+            </motion.a>
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={handleCopyLink}
+              className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-zinc-900/80 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-mono text-xs uppercase tracking-wider transition-all select-none"
+            >
+              {copiedLink ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-500" />
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">Resume Link Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5 text-blue-500" />
+                  <span>Copy Resume PDF Link</span>
+                </>
+              )}
+            </motion.button>
           </div>
 
           <div className="mt-4 flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 dark:text-zinc-400">
             <span>Direct PDF download</span>
             <span>•</span>
-            <span>Always up to date</span>
+            <span>Mobile &amp; Desktop optimized</span>
           </div>
         </div>
 
