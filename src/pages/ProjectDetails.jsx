@@ -30,11 +30,11 @@ export default function ProjectDetails() {
             The project blueprint you requested could not be located in the central archive.
           </p>
           <Link
-            to="/#projects"
+            to="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-mono text-xs uppercase tracking-wider font-semibold"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Return to Selected Work</span>
+            <span>Return to Home</span>
           </Link>
         </div>
       </div>
@@ -49,11 +49,11 @@ export default function ProjectDetails() {
         {/* Breadcrumb Back Link */}
         <div className="mb-8">
           <Link
-            to="/#projects"
+            to="/"
             className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span>Back to All Projects</span>
+            <span>Back to Home</span>
           </Link>
         </div>
 
