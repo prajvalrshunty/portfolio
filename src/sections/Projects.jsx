@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Lightbulb, Layers, Sparkles } from 'lucide-react';
+import { Hammer, Sparkles, Clock } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import ProjectCard from '../components/ProjectCard';
 import { projects, upcomingProjects, completedProjects } from '../data/projects';
 
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState('all'); // 'all' | 'upcoming' | 'showcase'
+  const [activeTab, setActiveTab] = useState('all'); // 'all' | 'wip' | 'live'
 
   const filteredProjects = activeTab === 'all'
     ? projects
-    : activeTab === 'upcoming'
+    : activeTab === 'wip'
     ? upcomingProjects
     : completedProjects;
 
@@ -21,7 +20,7 @@ export default function Projects() {
           number="03"
           category="PORTFOLIO & BLUEPRINTS"
           title="SELECTED WORK."
-          subtitle="A transparent showcase of active implementations and carefully architected upcoming machine learning & data engineering projects."
+          subtitle="Explore active implementations and 3D architectural blueprints for machine learning and data engineering projects currently in progress."
         />
 
         {/* Section View Switcher */}
@@ -31,58 +30,59 @@ export default function Projects() {
               onClick={() => setActiveTab('all')}
               className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
                 activeTab === 'all'
-                  ? 'bg-blue-600 text-white font-semibold'
+                  ? 'bg-blue-600 text-white font-semibold shadow-md'
                   : 'bg-zinc-900/60 dark:bg-zinc-900/60 light:bg-zinc-200 text-zinc-400 dark:text-zinc-400 light:text-zinc-700 hover:text-white dark:hover:text-white light:hover:text-black'
               }`}
             >
-              All Initiatives ({projects.length})
+              All Projects ({projects.length})
             </button>
 
             <button
-              onClick={() => setActiveTab('showcase')}
+              onClick={() => setActiveTab('live')}
               className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 ${
-                activeTab === 'showcase'
-                  ? 'bg-blue-600 text-white font-semibold'
+                activeTab === 'live'
+                  ? 'bg-emerald-600 text-white font-semibold shadow-md'
                   : 'bg-zinc-900/60 dark:bg-zinc-900/60 light:bg-zinc-200 text-zinc-400 dark:text-zinc-400 light:text-zinc-700 hover:text-white dark:hover:text-white light:hover:text-black'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Project Showcase ({completedProjects.length})</span>
+              <span>Live Project ({completedProjects.length})</span>
             </button>
 
             <button
-              onClick={() => setActiveTab('upcoming')}
+              onClick={() => setActiveTab('wip')}
               className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 ${
-                activeTab === 'upcoming'
-                  ? 'bg-amber-600 text-white font-semibold'
+                activeTab === 'wip'
+                  ? 'bg-amber-600 text-white font-semibold shadow-md'
                   : 'bg-zinc-900/60 dark:bg-zinc-900/60 light:bg-zinc-200 text-zinc-400 dark:text-zinc-400 light:text-zinc-700 hover:text-white dark:hover:text-white light:hover:text-black'
               }`}
             >
-              <Lightbulb className="w-3.5 h-3.5" />
-              <span>Upcoming Ideas ({upcomingProjects.length})</span>
+              <Hammer className="w-3.5 h-3.5" />
+              <span>Still Building / In Progress ({upcomingProjects.length})</span>
             </button>
           </div>
 
           <div className="text-xs font-mono text-zinc-400 dark:text-zinc-400 light:text-zinc-600 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            <span>Clearly tagged as IDEA / PLANNED vs ACTIVE</span>
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+            <span>Interactive 3D Cards • Tilt on hover</span>
           </div>
         </div>
 
-        {/* Subsection A & B Grid */}
+        {/* 3D Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
 
-        {/* Scalability Notice for Prajval */}
+        {/* Progress Notice */}
         <div className="mt-16 p-6 rounded-2xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/40 text-center max-w-2xl mx-auto space-y-2">
-          <p className="text-xs font-mono uppercase tracking-widest text-blue-400 font-bold">
-            Dynamic Architecture Note
+          <p className="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold flex items-center justify-center gap-2">
+            <Clock className="w-3.5 h-3.5" />
+            Active Engineering Pipeline
           </p>
-          <p className="text-xs text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-light leading-relaxed">
-            As planned projects are implemented, they can be seamlessly switched from <code className="text-amber-400">isUpcoming: true</code> to <code className="text-emerald-400">isUpcoming: false</code> in <code className="text-white">projects.js</code> to reflect live demo links and GitHub repositories.
+          <p className="text-xs text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-light leading-relaxed font-sans">
+            These project blueprints represent active technical explorations currently being coded in Python, scikit-learn, and React. As repositories and prototypes reach beta release, their live repositories will be synced here automatically.
           </p>
         </div>
       </div>
