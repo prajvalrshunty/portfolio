@@ -21,8 +21,8 @@ export default function Hero() {
       className="relative min-h-[95vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-grain"
     >
       {/* Ambient Glows */}
-      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-indigo-300/10 dark:bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Background tech grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -102,14 +102,14 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 href={resume.downloadUrl}
                 download={resume.filename}
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border border-zinc-300 dark:border-white/15 bg-white dark:bg-white/5 hover:border-blue-500 hover:bg-zinc-50 dark:hover:bg-blue-500/10 text-zinc-900 dark:text-white font-mono text-xs font-semibold uppercase tracking-widest transition-all duration-200 shadow-sm select-none"
+                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl border border-slate-200 dark:border-white/15 bg-white dark:bg-white/5 hover:border-blue-500 hover:bg-slate-50 dark:hover:bg-blue-500/10 text-zinc-900 dark:text-white font-mono text-xs font-semibold uppercase tracking-widest transition-all duration-200 shadow-sm select-none"
               >
                 <Download className="w-4 h-4" />
                 <span>DOWNLOAD RESUME</span>
               </motion.a>
 
               {/* Quick Socials */}
-              <div className="flex items-center gap-3 pl-2 sm:pl-4 border-l border-zinc-200 dark:border-white/10">
+              <div className="flex items-center gap-3 pl-2 sm:pl-4 border-l border-slate-200 dark:border-white/10">
                 <motion.a
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.9 }}
@@ -117,7 +117,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
-                  className="p-3 rounded-xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
+                  className="p-3 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
                 >
                   <Github className="w-4 h-4" />
                 </motion.a>
@@ -128,7 +128,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
-                  className="p-3 rounded-xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
+                  className="p-3 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
                 >
                   <Linkedin className="w-4 h-4" />
                 </motion.a>
@@ -137,7 +137,7 @@ export default function Hero() {
                   whileTap={{ scale: 0.9 }}
                   href={`mailto:${contact.email}`}
                   aria-label="Email Prajval"
-                  className="p-3 rounded-xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
+                  className="p-3 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-transparent text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-500 transition-colors shadow-sm"
                 >
                   <Mail className="w-4 h-4" />
                 </motion.a>
@@ -148,7 +148,7 @@ export default function Hero() {
           {/* Right Column: 3D Perspective Portrait (5 cols) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <CardContainer containerClassName="w-full max-w-sm sm:max-w-md py-4">
-              <CardBody className="relative w-full rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-xl dark:shadow-2xl bg-white dark:bg-zinc-950 p-3">
+              <CardBody className="relative w-full rounded-3xl overflow-hidden border border-slate-200/90 dark:border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.06)] dark:shadow-2xl bg-white dark:bg-zinc-950 p-3">
                 <CardItem translateZ="20" className="w-full rounded-2xl overflow-hidden relative">
                   <InteractivePortrait
                     src="/images/prajval-portrait.jpg"
@@ -158,7 +158,7 @@ export default function Hero() {
 
                 <CardItem
                   translateZ="30"
-                  className="absolute -top-2 -right-2 px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-white/15 text-[10px] font-mono text-zinc-700 dark:text-zinc-300 tracking-wider shadow-sm z-30"
+                  className="absolute -top-2 -right-2 px-3 py-1 rounded-md bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/15 text-[10px] font-mono text-zinc-800 dark:text-zinc-300 tracking-wider shadow-sm z-30"
                 >
                   ID // PRA-01
                 </CardItem>

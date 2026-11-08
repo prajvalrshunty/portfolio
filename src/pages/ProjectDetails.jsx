@@ -20,13 +20,13 @@ export default function ProjectDetails() {
     return (
       <div className="min-h-[80vh] flex items-center justify-center pt-28 pb-16 px-4">
         <div className="max-w-md w-full text-center space-y-6">
-          <div className="w-16 h-16 rounded-2xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 text-blue-600 dark:text-blue-400 mx-auto flex items-center justify-center font-mono">
+          <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-zinc-900 border border-slate-200 dark:border-white/10 text-blue-600 dark:text-blue-400 mx-auto flex items-center justify-center font-mono">
             404
           </div>
-          <h2 className="text-2xl font-bold font-editorial text-zinc-900 dark:text-white uppercase">
+          <h2 className="text-2xl font-bold font-editorial text-zinc-950 dark:text-white uppercase">
             Project Blueprint Not Found
           </h2>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 font-light">
+          <p className="text-sm text-slate-600 dark:text-zinc-400 font-light">
             The project blueprint you requested could not be located in the central archive.
           </p>
           <Link
@@ -50,7 +50,7 @@ export default function ProjectDetails() {
         <div className="mb-8">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <span>Back to All Projects</span>
@@ -65,7 +65,7 @@ export default function ProjectDetails() {
           className="space-y-6"
         >
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400 font-semibold px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10">
+            <span className="text-xs font-mono uppercase tracking-widest text-blue-700 dark:text-blue-400 font-semibold px-3 py-1 rounded-full border border-blue-200/80 dark:border-blue-500/20 bg-blue-50 dark:bg-blue-500/10">
               {project.category}
             </span>
 
@@ -81,16 +81,16 @@ export default function ProjectDetails() {
               </span>
             )}
 
-            <span className="text-xs font-mono text-zinc-600 dark:text-zinc-400 ml-auto">
+            <span className="text-xs font-mono text-slate-600 dark:text-zinc-400 ml-auto">
               Timeline: {project.year}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase font-editorial tracking-tight text-zinc-900 dark:text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase font-editorial tracking-tight text-zinc-950 dark:text-white leading-tight">
             {project.title}
           </h1>
 
-          <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 font-light leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-700 dark:text-zinc-300 font-light leading-relaxed">
             {project.fullDescription || project.shortDescription}
           </p>
 
@@ -101,13 +101,13 @@ export default function ProjectDetails() {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-white/15 hover:border-blue-500 text-zinc-900 dark:text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all shadow-sm"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-white/15 hover:border-blue-500 text-zinc-950 dark:text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all shadow-xs"
               >
                 <Github className="w-4 h-4" />
                 <span>Source Code on GitHub</span>
               </a>
             ) : (
-              <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200 dark:border-white/5 text-zinc-600 dark:text-zinc-400 text-xs font-mono">
+              <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-zinc-900/60 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-zinc-400 text-xs font-mono">
                 <Github className="w-3.5 h-3.5" />
                 <span>Repository: Planned for release</span>
               </span>
@@ -132,7 +132,7 @@ export default function ProjectDetails() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-12 rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-xl dark:shadow-2xl bg-zinc-100 dark:bg-zinc-950"
+          className="mt-12 rounded-3xl overflow-hidden border border-slate-200/90 dark:border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:shadow-2xl bg-white dark:bg-zinc-950"
         >
           <img
             src={project.image}
@@ -156,7 +156,7 @@ export default function ProjectDetails() {
                   {project.highlights.map((h, i) => (
                     <li
                       key={i}
-                      className="p-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-950/60 text-sm text-zinc-700 dark:text-zinc-300 font-light flex items-start gap-3 shadow-sm dark:shadow-none"
+                      className="p-4 rounded-xl border border-slate-200/80 dark:border-white/5 bg-white dark:bg-zinc-950/60 text-sm text-slate-700 dark:text-zinc-300 font-light flex items-start gap-3 shadow-[0_2px_12px_rgba(0,0,0,0.02)] dark:shadow-none"
                     >
                       <span className="font-mono text-xs text-blue-500 font-bold mt-0.5">0{i + 1}</span>
                       <span>{h}</span>
@@ -177,7 +177,7 @@ export default function ProjectDetails() {
                   {project.architecture.map((arch, i) => (
                     <div
                       key={i}
-                      className="p-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-zinc-900/40 text-sm text-zinc-600 dark:text-zinc-400 font-light"
+                      className="p-4 rounded-xl border border-slate-200/80 dark:border-white/5 bg-slate-50/80 dark:bg-zinc-900/40 text-sm text-slate-700 dark:text-zinc-400 font-light"
                     >
                       {arch}
                     </div>
@@ -189,25 +189,25 @@ export default function ProjectDetails() {
 
           {/* Sidebar Metadata (4 cols) */}
           <div className="md:col-span-4 space-y-6">
-            <div className="p-6 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/70 backdrop-blur-md space-y-6 shadow-sm dark:shadow-xl">
+            <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/70 backdrop-blur-md space-y-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:shadow-xl">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 block mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 dark:text-zinc-400 block mb-1">
                   Designated Role
                 </span>
-                <span className="text-sm font-mono font-semibold text-zinc-900 dark:text-white">
+                <span className="text-sm font-mono font-semibold text-zinc-950 dark:text-white">
                   {project.role}
                 </span>
               </div>
 
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 block mb-2">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 dark:text-zinc-400 block mb-2">
                   Technology Stack
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {project.techStack.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 text-xs font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/5"
+                      className="px-2.5 py-1 rounded bg-slate-100/90 dark:bg-zinc-900 text-xs font-mono text-slate-700 dark:text-zinc-300 border border-slate-200/80 dark:border-white/5"
                     >
                       {tech}
                     </span>
@@ -216,7 +216,7 @@ export default function ProjectDetails() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 block mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 dark:text-zinc-400 block mb-1">
                   Status Category
                 </span>
                 <span className="text-xs font-mono font-medium text-emerald-600 dark:text-emerald-400">

@@ -33,7 +33,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6 text-zinc-700 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed font-sans"
+            className="lg:col-span-7 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg font-normal leading-relaxed font-sans"
           >
             {extendedBio.map((paragraph, idx) => (
               <p key={idx} className="relative">
@@ -50,13 +50,13 @@ export default function About() {
               <motion.div
                 whileHover={{ y: -3, scale: 1.015 }}
                 whileTap={{ scale: 0.98 }}
-                className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-none hover:border-blue-500/40 transition-colors"
+                className="p-5 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/60 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(59,130,246,0.1)] hover:border-blue-500/40 transition-all duration-300"
               >
                 <BrainCircuit className="w-5 h-5 text-blue-600 dark:text-blue-400 mb-2" />
-                <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-display">
+                <h4 className="text-sm font-bold text-zinc-950 dark:text-white font-display">
                   Data &amp; Intelligence
                 </h4>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 font-light leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-zinc-400 mt-1 font-light leading-relaxed">
                   Focusing on probability, statistics, tabular modeling, and feature engineering with Python and scikit-learn.
                 </p>
               </motion.div>
@@ -64,13 +64,13 @@ export default function About() {
               <motion.div
                 whileHover={{ y: -3, scale: 1.015 }}
                 whileTap={{ scale: 0.98 }}
-                className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 backdrop-blur-md shadow-sm dark:shadow-none hover:border-indigo-500/40 transition-colors"
+                className="p-5 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/60 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(99,102,241,0.1)] hover:border-indigo-500/40 transition-all duration-300"
               >
                 <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mb-2" />
-                <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-display">
+                <h4 className="text-sm font-bold text-zinc-950 dark:text-white font-display">
                   Software Engineering
                 </h4>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 font-light leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-zinc-400 mt-1 font-light leading-relaxed">
                   Practicing clean modular architecture, Git version control, and building reactive web frontends.
                 </p>
               </motion.div>
@@ -79,13 +79,13 @@ export default function About() {
 
           {/* Quick Info Panel (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/80 p-6 sm:p-8 backdrop-blur-md shadow-sm dark:shadow-xl hover:border-blue-500/30 transition-all duration-300">
-              <div className="flex items-center justify-between pb-5 mb-5 border-b border-zinc-200 dark:border-white/10">
+            <div className="rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/80 p-6 sm:p-8 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:shadow-xl hover:border-blue-500/30 transition-all duration-300">
+              <div className="flex items-center justify-between pb-5 mb-5 border-b border-slate-100 dark:border-white/10">
                 <div>
                   <span className="text-[10px] font-mono tracking-widest uppercase text-blue-600 dark:text-blue-400 font-semibold block mb-1">
                     ACADEMIC PROFILE
                   </span>
-                  <h3 className="text-xl font-bold font-display text-zinc-900 dark:text-white uppercase">
+                  <h3 className="text-xl font-bold font-display text-zinc-950 dark:text-white uppercase">
                     Information Dossier
                   </h3>
                 </div>
@@ -99,9 +99,9 @@ export default function About() {
                   return (
                     <div
                       key={i}
-                      className="flex items-start justify-between py-2 border-b border-zinc-200 dark:border-white/5 text-sm"
+                      className="flex items-start justify-between py-2 border-b border-slate-100 dark:border-white/5 text-sm"
                     >
-                      <div className="flex items-center gap-2.5 text-zinc-600 dark:text-zinc-400 font-mono text-xs">
+                      <div className="flex items-center gap-2.5 text-slate-600 dark:text-zinc-400 font-mono text-xs">
                         <Icon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                         <span>{item.label}</span>
                       </div>
@@ -109,7 +109,7 @@ export default function About() {
                         className={`font-medium text-right text-xs sm:text-sm ${
                           item.highlight
                             ? 'text-emerald-600 dark:text-emerald-400 font-mono font-bold'
-                            : 'text-zinc-900 dark:text-white'
+                            : 'text-zinc-950 dark:text-white'
                         }`}
                       >
                         {item.value}
@@ -120,7 +120,7 @@ export default function About() {
               </div>
 
               {/* Verified academic banner */}
-              <div className="mt-6 p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/5 text-xs text-zinc-600 dark:text-zinc-400 font-mono leading-relaxed">
+              <div className="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-600 dark:text-zinc-400 font-mono leading-relaxed">
                 Verified B.E. Computer Science &amp; Engineering (Data Science) student (2025–2029) at BIET Davangere.
               </div>
             </div>

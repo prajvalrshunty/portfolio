@@ -7,12 +7,12 @@ import { CardContainer, CardBody, CardItem } from './ThreeDCard';
 export default function ProjectCard({ project }) {
   return (
     <CardContainer containerClassName="w-full">
-      <CardBody className="group relative rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950/80 overflow-hidden backdrop-blur-md hover:border-blue-500/50 hover:shadow-lg dark:hover:shadow-[0_15px_30px_rgba(59,130,246,0.08)] transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 shadow-sm">
+      <CardBody className="group relative rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/80 overflow-hidden backdrop-blur-md hover:border-blue-500/50 hover:shadow-[0_16px_36px_rgba(59,130,246,0.1)] dark:hover:shadow-[0_15px_30px_rgba(59,130,246,0.08)] transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03),0_1px_3px_rgba(0,0,0,0.02)]">
         
         {/* Top Media Representation */}
         <CardItem
           translateZ="20"
-          className="w-full relative aspect-[16/10] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 mb-6 shadow-sm"
+          className="w-full relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-white/10 mb-6 shadow-sm"
         >
           <img
             src={project.image}
@@ -69,12 +69,12 @@ export default function ProjectCard({ project }) {
           </div>
 
           {/* Tech Stack Chips & Action Links */}
-          <div className="mt-6 pt-5 border-t border-zinc-200 dark:border-white/5">
+          <div className="mt-6 pt-5 border-t border-slate-100 dark:border-white/5">
             <CardItem translateZ="15" className="flex flex-wrap gap-1.5 mb-5">
               {project.techStack.map((tech, i) => (
                 <span
                   key={i}
-                  className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/5"
+                  className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-100/90 dark:bg-zinc-900 text-slate-800 dark:text-zinc-300 border border-slate-200/80 dark:border-white/5 font-medium"
                 >
                   {tech}
                 </span>

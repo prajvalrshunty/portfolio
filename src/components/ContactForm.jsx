@@ -125,7 +125,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="relative rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/70 p-7 sm:p-10 backdrop-blur-md shadow-sm dark:shadow-xl">
+    <div className="relative rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/70 p-7 sm:p-10 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-xl">
       <form onSubmit={handleSubmit} noValidate className="space-y-6">
         {/* Spam protection trap - hidden from normal users */}
         <input
@@ -143,7 +143,7 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="name"
-              className="block text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-2 font-medium"
+              className="block text-xs font-mono uppercase tracking-widest text-slate-600 dark:text-zinc-400 mb-2 font-medium"
             >
               Full Name <span className="text-blue-500">*</span>
             </label>
@@ -155,10 +155,10 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="e.g. Jane Doe"
               disabled={status === 'sending'}
-              className={`w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/80 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
+              className={`w-full px-4 py-3 rounded-xl bg-slate-50/80 dark:bg-zinc-900/80 border text-zinc-950 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
                 errors.name
-                  ? 'border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                  : 'border-zinc-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
+                  ? 'border-red-500/80 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                  : 'border-slate-200 dark:border-white/10 focus:bg-white dark:focus:bg-zinc-900 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'
               }`}
             />
             {errors.name && (
@@ -173,7 +173,7 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="email"
-              className="block text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-2 font-medium"
+              className="block text-xs font-mono uppercase tracking-widest text-slate-600 dark:text-zinc-400 mb-2 font-medium"
             >
               Email Address <span className="text-blue-500">*</span>
             </label>
@@ -185,10 +185,10 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="e.g. jane@company.com"
               disabled={status === 'sending'}
-              className={`w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/80 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
+              className={`w-full px-4 py-3 rounded-xl bg-slate-50/80 dark:bg-zinc-900/80 border text-zinc-950 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
                 errors.email
-                  ? 'border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                  : 'border-zinc-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
+                  ? 'border-red-500/80 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                  : 'border-slate-200 dark:border-white/10 focus:bg-white dark:focus:bg-zinc-900 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'
               }`}
             />
             {errors.email && (
@@ -204,7 +204,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="subject"
-            className="block text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-2 font-medium"
+            className="block text-xs font-mono uppercase tracking-widest text-slate-600 dark:text-zinc-400 mb-2 font-medium"
           >
             Subject <span className="text-blue-500">*</span>
           </label>
@@ -216,10 +216,10 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="e.g. Internship Inquiry / Technical Collaboration"
             disabled={status === 'sending'}
-            className={`w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/80 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
+            className={`w-full px-4 py-3 rounded-xl bg-slate-50/80 dark:bg-zinc-900/80 border text-zinc-950 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 ${
               errors.subject
-                ? 'border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                : 'border-zinc-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
+                ? 'border-red-500/80 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                : 'border-slate-200 dark:border-white/10 focus:bg-white dark:focus:bg-zinc-900 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'
             }`}
           />
           {errors.subject && (
@@ -234,7 +234,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="message"
-            className="block text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-2 font-medium"
+            className="block text-xs font-mono uppercase tracking-widest text-slate-600 dark:text-zinc-400 mb-2 font-medium"
           >
             Message <span className="text-blue-500">*</span>
           </label>
@@ -246,10 +246,10 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Tell me about your role, project, or opportunity..."
             disabled={status === 'sending'}
-            className={`w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/80 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 resize-none ${
+            className={`w-full px-4 py-3 rounded-xl bg-slate-50/80 dark:bg-zinc-900/80 border text-zinc-950 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 text-sm focus:outline-none transition-all duration-200 resize-none ${
               errors.message
-                ? 'border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                : 'border-zinc-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
+                ? 'border-red-500/80 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                : 'border-slate-200 dark:border-white/10 focus:bg-white dark:focus:bg-zinc-900 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'
             }`}
           />
           {errors.message && (
@@ -308,7 +308,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === 'sending'}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-800 disabled:text-zinc-500 text-white font-mono font-semibold text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-slate-200 disabled:text-slate-400 dark:disabled:bg-zinc-800 dark:disabled:text-zinc-500 text-white font-mono font-semibold text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-blue-400 select-none cursor-pointer"
           >
             {status === 'sending' ? (
               <>
