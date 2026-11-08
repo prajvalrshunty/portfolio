@@ -40,7 +40,7 @@ export default function Experience() {
     <section id="experience" className="py-24 sm:py-32 relative bg-zinc-100/40 dark:bg-zinc-950/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          number="06"
+          number="05"
           category="INDUSTRY OBJECTIVE"
           title="MY PROFESSIONAL JOURNEY."
           subtitle="An honest student trajectory centered on practical technical exposure, mentorship, and impactful engineering contributions."

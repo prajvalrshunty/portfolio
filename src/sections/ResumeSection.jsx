@@ -7,7 +7,7 @@ export default function ResumeSection() {
     <section id="resume" className="py-24 sm:py-32 relative bg-zinc-100/40 dark:bg-zinc-950/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          number="07"
+          number="06"
           category="FORMAL QUALIFICATIONS"
           title="MY RESUME."
           subtitle="Direct access to verified academic credentials, technical coursework, and foundational competencies."

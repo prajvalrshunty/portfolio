@@ -13,7 +13,7 @@ export default function Contact() {
     <section id="contact" className="py-24 sm:py-32 relative bg-grain">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          number="08"
+          number="07"
           category="COMMUNICATION PIPELINE"
           title="LET'S BUILD SOMETHING TOGETHER."
           subtitle="Interested in discussing an internship, technical challenge, or collaborative data science project? Send a transmission below."

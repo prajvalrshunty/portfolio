@@ -27,6 +27,12 @@ export const personalInfo = {
     duration: "2025 – 2029",
     currentYear: "2nd Year",
     cgpa: "7.5",
+    puc: {
+      degree: "Pre-University Education (PUC / Science)",
+      institution: "Alva's Pre-University College",
+      location: "Mudbidre, Karnataka",
+      duration: "2023 – 2025"
+    },
     highlights: [
       "Specialization in Data Science, Probability & Statistics, and Algorithmic Thinking",
       "Hands-on coursework in Data Structures, Object-Oriented Programming, and Database Systems",

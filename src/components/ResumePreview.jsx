@@ -69,14 +69,27 @@ export default function ResumePreview() {
               <h5 className="text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400 font-bold mb-2">
                 Education
               </h5>
-              <div className="text-xs space-y-1">
-                <div className="flex justify-between font-medium text-zinc-900 dark:text-white">
-                  <span>{academics.degree}</span>
-                  <span className="font-mono text-zinc-600 dark:text-zinc-400">{academics.duration}</span>
+              <div className="text-xs space-y-3">
+                <div className="space-y-0.5">
+                  <div className="flex justify-between font-medium text-zinc-900 dark:text-white">
+                    <span>{academics.degree}</span>
+                    <span className="font-mono text-zinc-600 dark:text-zinc-400">{academics.duration}</span>
+                  </div>
+                  <div className="text-zinc-600 dark:text-zinc-400 flex justify-between">
+                    <span>{academics.institution}</span>
+                    <span className="text-blue-600 dark:text-blue-400 font-mono font-medium">CGPA: {academics.cgpa} ({academics.currentYear})</span>
+                  </div>
                 </div>
-                <div className="text-zinc-600 dark:text-zinc-400 flex justify-between">
-                  <span>{academics.institution}</span>
-                  <span className="text-blue-600 dark:text-blue-400 font-mono font-medium">CGPA: {academics.cgpa} ({academics.currentYear})</span>
+
+                <div className="space-y-0.5 pt-2 border-t border-zinc-100 dark:border-white/5">
+                  <div className="flex justify-between font-medium text-zinc-900 dark:text-white">
+                    <span>{academics.puc?.degree || "Pre-University Education (PUC / Science)"}</span>
+                    <span className="font-mono text-zinc-600 dark:text-zinc-400">{academics.puc?.duration || "2023 – 2025"}</span>
+                  </div>
+                  <div className="text-zinc-600 dark:text-zinc-400 flex justify-between">
+                    <span>{academics.puc?.institution || "Alva's Pre-University College"}</span>
+                    <span className="font-mono text-zinc-500">{academics.puc?.location || "Mudbidre, Karnataka"}</span>
+                  </div>
                 </div>
               </div>
             </div>

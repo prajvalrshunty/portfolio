@@ -28,21 +28,22 @@ export const academicTimeline = [
   {
     period: "2023 – 2025",
     degree: "Pre-University Education (PUC / Class 12)",
-    specialization: "PCMB (Physics, Chemistry, Mathematics, Biology)",
-    institution: "Karnataka State Pre-University Board",
-    location: "Karnataka, India",
+    specialization: "Science (PCMB)",
+    institution: "Alva's Pre-University College",
+    location: "Mudbidre (Moodbidri), Karnataka, India",
     currentStatus: "Completed",
-    type: "Higher Secondary",
+    type: "Pre-University College",
     isCurrent: false,
-    overview: "Built a solid quantitative background in analytical mathematics and physical sciences, laying the groundwork for engineering studies.",
+    overview: "Completed pre-university education at Alva's Pre-University College, Mudbidre. Developed a rigorous analytical foundation in advanced mathematics and physical sciences, paving the way for engineering studies in Computer Science and Data Science.",
     coreSubjects: [
-      "Mathematics (Calculus, Algebra, Vectors)",
+      "Mathematics (Calculus, Algebra, Coordinate Geometry)",
       "Physics (Mechanics, Electricity, Modern Physics)",
-      "Analytical Problem Solving"
+      "Chemistry & Analytical Sciences",
+      "Logical & Quantitative Reasoning"
     ],
     milestones: [
-      "Developed deep analytical reasoning and disciplined mathematical foundation",
-      "Qualified for Engineering Admissions via state entrance examination"
+      "Built a strong mathematical, logical, and analytical foundation at Alva's Pre-University College, Mudbidre",
+      "Successfully qualified for Engineering admissions into B.E. CSE (Data Science) at BIET Davangere"
     ]
   }
 ];
