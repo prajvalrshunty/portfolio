@@ -1,11 +1,14 @@
 import React from 'react';
 import { ArrowUp, Mail } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
+import { useLenis } from '../context/SmoothScrollContext';
 import { personalInfo } from '../data/personalInfo';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const { scrollTo } = useLenis();
+
+  const handleScrollToTop = () => {
+    scrollTo(0, { offset: 0, duration: 1.2 });
   };
 
   return (
@@ -76,7 +79,7 @@ export default function Footer() {
               Back to summit
             </span>
             <button
-              onClick={scrollToTop}
+              onClick={handleScrollToTop}
               aria-label="Scroll to top of page"
               className="p-3 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-zinc-900/80 hover:bg-blue-600 hover:border-blue-600 dark:hover:bg-blue-600 text-slate-700 dark:text-zinc-300 hover:text-white dark:hover:text-white transition-all duration-200 group shadow-xs cursor-pointer"
             >

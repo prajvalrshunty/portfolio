@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import { useLenis } from '../context/SmoothScrollContext';
 import { personalInfo } from '../data/personalInfo';
 
 const navItems = [
@@ -21,29 +22,77 @@ export default function Navbar({ theme, toggleTheme }) {
   const [activeSection, setActiveSection] = useState('hero');
   const location = useLocation();
   const navigate = useNavigate();
+  const { lenis, scrollTo } = useLenis();
 
   const isHome = location.pathname === '/';
 
+  // Lock body scroll and pause Lenis while mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      if (lenis) lenis.stop();
+    } else {
+      document.body.style.overflow = '';
+      if (lenis) lenis.start();
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      if (lenis) lenis.start();
+    };
+  }, [mobileMenuOpen, lenis]);
+
+  // Track scroll position for sticky background styling & active section highlight
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 25);
 
-      if (isHome) {
-        const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
-        const scrollPosition = window.scrollY + 200;
+      if (!isHome) return;
 
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const section = sections[i];
-          if (section.offsetTop <= scrollPosition) {
-            setActiveSection(section.id);
-            break;
-          }
-        }
+      // Handle edge cases: top of page and bottom of page
+      if (window.scrollY < 150) {
+        setActiveSection('hero');
+        return;
+      }
+
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
+        setActiveSection('contact');
+        return;
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHome]);
+
+  // Precise IntersectionObserver for highlighting the active section in view
+  useEffect(() => {
+    if (!isHome) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-25% 0px -55% 0px',
+      threshold: 0,
+    };
+
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    navItems.forEach((item) => {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, [isHome]);
 
   const handleNavClick = (e, item) => {
@@ -55,9 +104,14 @@ export default function Navbar({ theme, toggleTheme }) {
       return;
     }
 
-    const target = document.getElementById(item.id);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+    // Ultra-smooth scrolling to anchor with header offset
+    scrollTo(`#${item.id}`, { offset: -80, duration: 1.15 });
+  };
+
+  const handleLogoClick = (e) => {
+    if (isHome) {
+      e.preventDefault();
+      scrollTo(0, { offset: 0, duration: 1.15 });
     }
   };
 
@@ -75,15 +129,10 @@ export default function Navbar({ theme, toggleTheme }) {
             {/* Logo / Monogram */}
             <Link
               to="/"
-              onClick={(e) => {
-                if (isHome) {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
+              onClick={handleLogoClick}
               className="group flex items-center gap-3.5 focus:outline-none"
             >
-              <div className="w-11 h-11 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-white/15 text-zinc-900 dark:text-white flex items-center justify-center font-display font-black text-base tracking-wider group-hover:border-blue-500 transition-colors shadow-sm">
+              <div className="w-11 h-11 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-white/15 text-zinc-900 dark:text-white flex items-center justify-center font-display font-black text-base tracking-wider group-hover:border-blue-500 transition-colors shadow-xs">
                 PR
               </div>
               <div className="flex flex-col">
@@ -97,7 +146,7 @@ export default function Navbar({ theme, toggleTheme }) {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1.5 p-1.5 rounded-full border border-slate-200/90 dark:border-white/10 bg-slate-100/80 dark:bg-zinc-950/70 shadow-sm backdrop-blur-md">
+            <nav className="hidden lg:flex items-center gap-1.5 p-1.5 rounded-full border border-slate-200/90 dark:border-white/10 bg-slate-100/80 dark:bg-zinc-950/70 shadow-xs backdrop-blur-md">
               {navItems.map((item) => {
                 const isActive = isHome && activeSection === item.id;
                 return (
@@ -124,7 +173,7 @@ export default function Navbar({ theme, toggleTheme }) {
               <a
                 href={personalInfo.resume.downloadUrl}
                 download={personalInfo.resume.filename}
-                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono uppercase tracking-wider bg-white dark:bg-white/10 hover:bg-blue-600 hover:text-white hover:border-blue-600 text-zinc-900 dark:text-zinc-200 border border-slate-200 dark:border-white/10 transition-all duration-200 font-semibold shadow-sm"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono uppercase tracking-wider bg-white dark:bg-white/10 hover:bg-blue-600 hover:text-white hover:border-blue-600 text-zinc-900 dark:text-zinc-200 border border-slate-200 dark:border-white/10 transition-all duration-200 font-semibold shadow-xs"
               >
                 <Download className="w-4 h-4" />
                 <span>Resume</span>
@@ -160,29 +209,36 @@ export default function Navbar({ theme, toggleTheme }) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm lg:hidden"
             />
 
             <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.97 }}
-              transition={{ duration: 0.25 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="fixed inset-x-4 top-20 z-40 lg:hidden"
             >
               <div className="rounded-2xl border border-zinc-200 dark:border-white/15 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-2xl p-6 shadow-2xl space-y-4">
                 <div className="space-y-1">
-                  {navItems.map((item) => (
-                    <motion.a
-                      key={item.id}
-                      whileTap={{ scale: 0.97 }}
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item)}
-                      className="block px-4 py-3 rounded-xl text-sm font-mono uppercase tracking-wider text-zinc-800 dark:text-zinc-300 hover:bg-blue-600 hover:text-white active:bg-blue-600 active:text-white transition-colors"
-                    >
-                      {item.label}
-                    </motion.a>
-                  ))}
+                  {navItems.map((item) => {
+                    const isActive = isHome && activeSection === item.id;
+                    return (
+                      <motion.a
+                        key={item.id}
+                        whileTap={{ scale: 0.97 }}
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item)}
+                        className={`block px-4 py-3 rounded-xl text-sm font-mono uppercase tracking-wider transition-colors ${
+                          isActive
+                            ? 'bg-blue-600 text-white font-semibold'
+                            : 'text-zinc-800 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-white/5'
+                        }`}
+                      >
+                        {item.label}
+                      </motion.a>
+                    );
+                  })}
                 </div>
 
                 <div className="pt-4 border-t border-zinc-200 dark:border-white/10">
@@ -190,7 +246,7 @@ export default function Navbar({ theme, toggleTheme }) {
                     whileTap={{ scale: 0.97 }}
                     href={personalInfo.resume.downloadUrl}
                     download={personalInfo.resume.filename}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 active:bg-blue-700 text-white font-mono text-xs uppercase tracking-wider font-semibold"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 active:bg-blue-700 text-white font-mono text-xs uppercase tracking-wider font-semibold shadow-md shadow-blue-500/20"
                   >
                     <Download className="w-4 h-4" />
                     <span>Download Resume PDF</span>

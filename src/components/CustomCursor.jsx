@@ -6,14 +6,14 @@ export default function CustomCursor() {
   const [isHovered, setIsHovered] = useState(false);
   const [isPointerDevice, setIsPointerDevice] = useState(false);
 
-  // Smooth springs for fluid cursor physics
-  const cursorX = useSpring(0, { damping: 28, stiffness: 350 });
-  const cursorY = useSpring(0, { damping: 28, stiffness: 350 });
-  const ringX = useSpring(0, { damping: 20, stiffness: 180 });
-  const ringY = useSpring(0, { damping: 20, stiffness: 180 });
+  // High-performance springs with zero lag
+  const cursorX = useSpring(-100, { damping: 32, stiffness: 450 });
+  const cursorY = useSpring(-100, { damping: 32, stiffness: 450 });
+  const ringX = useSpring(-100, { damping: 24, stiffness: 240 });
+  const ringY = useSpring(-100, { damping: 24, stiffness: 240 });
 
   useEffect(() => {
-    // Only enable on non-touch desktop devices with fine pointer
+    // Strictly enable ONLY on non-touch desktop devices with fine pointer
     const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
     const checkPointer = () => setIsPointerDevice(mediaQuery.matches);
     checkPointer();
@@ -22,32 +22,40 @@ export default function CustomCursor() {
 
     document.body.classList.add('has-custom-cursor');
 
-    const handleMouseMove = (e) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
-      ringX.set(e.clientX);
-      ringY.set(e.clientY);
+    const updatePosition = (clientX, clientY) => {
+      cursorX.set(clientX);
+      cursorY.set(clientY);
+      ringX.set(clientX);
+      ringY.set(clientY);
       if (!isVisible) setIsVisible(true);
+    };
+
+    const handleMouseMove = (e) => {
+      updatePosition(e.clientX, e.clientY);
+    };
+
+    // Use pointerover to automatically detect interactive elements even as the page scrolls
+    const handlePointerOver = (e) => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      const isInteractive = target.closest(
+        'a, button, input, textarea, select, [role="button"], [data-cursor], .cursor-pointer'
+      );
+      setIsHovered(Boolean(isInteractive));
     };
 
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
-    const handleHoverCheck = (e) => {
-      const target = e.target;
-      const isInteractive = target.closest('a, button, input, textarea, select, [role="button"], .clickable');
-      setIsHovered(Boolean(isInteractive));
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mousemove', handleHoverCheck);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('pointerover', handlePointerOver, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
 
     return () => {
       document.body.classList.remove('has-custom-cursor');
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mousemove', handleHoverCheck);
+      document.removeEventListener('pointerover', handlePointerOver);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
     };
@@ -56,8 +64,11 @@ export default function CustomCursor() {
   if (!isPointerDevice || !isVisible) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
-      {/* Primary Dot */}
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-50 overflow-hidden select-none"
+    >
+      {/* Primary High-Speed Dot */}
       <motion.div
         style={{
           x: cursorX,
@@ -66,14 +77,14 @@ export default function CustomCursor() {
           translateY: '-50%',
         }}
         animate={{
-          scale: isHovered ? 0.5 : 1,
+          scale: isHovered ? 0.45 : 1,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.15 }}
-        className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+        className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.9)]"
       />
 
-      {/* Trailing Aura Ring */}
+      {/* Trailing Elastic Ambient Ring */}
       <motion.div
         style={{
           x: ringX,
@@ -83,12 +94,12 @@ export default function CustomCursor() {
         }}
         animate={{
           scale: isHovered ? 2.2 : 1,
-          borderColor: isHovered ? 'rgba(59, 130, 246, 0.85)' : undefined,
-          backgroundColor: isHovered ? 'rgba(59, 130, 246, 0.1)' : 'transparent',
+          borderColor: isHovered ? 'rgba(59, 130, 246, 0.9)' : undefined,
+          backgroundColor: isHovered ? 'rgba(59, 130, 246, 0.12)' : 'transparent',
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.2 }}
-        className="w-8 h-8 rounded-full border border-zinc-500/40 dark:border-white/30 transition-colors duration-300"
+        className="w-8 h-8 rounded-full border border-zinc-500/40 dark:border-white/30 transition-colors duration-200"
       />
     </div>
   );

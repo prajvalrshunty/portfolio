@@ -1,13 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, MapPin, Award, BookOpen, CheckCircle } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin, Award, BookOpen } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
+import SectionWatermark from '../components/SectionWatermark';
 import { academicTimeline } from '../data/education';
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 sm:py-32 relative bg-slate-50/60 dark:bg-zinc-950/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="education" className="py-24 sm:py-32 relative bg-slate-50/60 dark:bg-zinc-950/20 overflow-hidden">
+      <SectionWatermark number="04" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           number="04"
           category="ACADEMIC FOUNDATIONS"
@@ -19,10 +22,10 @@ export default function Education() {
           {academicTimeline.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="relative group"
             >
               {/* Timeline Marker Node */}
@@ -98,14 +101,12 @@ export default function Education() {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {item.coreSubjects.map((sub, i) => (
-                        <motion.span
+                        <span
                           key={i}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="px-2.5 py-1 rounded bg-slate-100/80 dark:bg-zinc-900/90 text-xs font-mono text-slate-700 dark:text-zinc-300 border border-slate-200/70 dark:border-white/5 hover:border-blue-500/40 hover:bg-blue-50/50 transition-colors"
+                          className="text-xs font-mono px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-white/5 text-slate-700 dark:text-zinc-300"
                         >
                           {sub}
-                        </motion.span>
+                        </span>
                       ))}
                     </div>
                   </div>

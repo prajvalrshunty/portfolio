@@ -1,23 +1,47 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
+import SectionWatermark from '../components/SectionWatermark';
 import SkillCard from '../components/SkillCard';
 import { skillCategories } from '../data/skills';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState('all');
 
-  const allSkills = skillCategories.flatMap(cat =>
-    cat.skills.map(skill => ({ ...skill, category: cat.title, categoryId: cat.id }))
+  const allSkills = skillCategories.flatMap((cat) =>
+    cat.skills.map((skill) => ({ ...skill, category: cat.title, categoryId: cat.id }))
   );
 
-  const displayedSkills = activeCategory === 'all'
-    ? allSkills
-    : allSkills.filter(s => s.categoryId === activeCategory);
+  const displayedSkills =
+    activeCategory === 'all'
+      ? allSkills
+      : allSkills.filter((s) => s.categoryId === activeCategory);
 
   return (
-    <section id="skills" className="py-24 sm:py-32 relative bg-slate-50/60 dark:bg-zinc-950/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-24 sm:py-32 relative bg-slate-50/60 dark:bg-zinc-950/30 overflow-hidden">
+      <SectionWatermark number="02" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           number="02"
           category="COMPETENCIES & TOOLS"
@@ -26,7 +50,13 @@ export default function Skills() {
         />
 
         {/* Filter Navigation Tabs */}
-        <div className="flex flex-wrap items-center gap-2 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-wrap items-center gap-2 mb-10"
+        >
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.95 }}
@@ -55,21 +85,35 @@ export default function Skills() {
               {cat.title} ({cat.skills.length})
             </motion.button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Dynamic 3D Skill Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Dynamic 3D Skill Cards Grid with Staggered Entrance */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {displayedSkills.map((skill) => (
-            <SkillCard key={skill.name} skill={skill} />
+            <motion.div key={skill.name} variants={cardItemVariants}>
+              <SkillCard skill={skill} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Transparent Note */}
-        <div className="mt-12 p-5 rounded-xl border border-slate-200/80 bg-white/80 dark:bg-zinc-950/40 text-center shadow-sm dark:shadow-none">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-12 p-5 rounded-xl border border-slate-200/80 bg-white/80 dark:bg-zinc-950/40 text-center shadow-xs dark:shadow-none"
+        >
           <p className="text-xs font-mono text-slate-600 dark:text-zinc-400 font-sans">
             Technical skills are continuously exercised through academic laboratory sessions, open-source reading, and active algorithmic problem solving.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

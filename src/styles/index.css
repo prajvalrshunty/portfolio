@@ -1,3 +1,5 @@
+@import 'lenis/dist/lenis.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,6 +19,12 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+    scroll-behavior: auto !important;
   }
 
   body {
@@ -74,7 +82,10 @@
   body.has-custom-cursor button,
   body.has-custom-cursor input,
   body.has-custom-cursor textarea,
-  body.has-custom-cursor [role="button"] {
+  body.has-custom-cursor select,
+  body.has-custom-cursor [role="button"],
+  body.has-custom-cursor [data-cursor],
+  body.has-custom-cursor .cursor-pointer {
     cursor: none;
   }
 }

@@ -1,15 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Clock, Send } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
-import { personalInfo } from '../data/personalInfo';
+import SectionWatermark from '../components/SectionWatermark';
 
 export default function Experience() {
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const capabilities = [
     {
       title: "Strong Analytical Discipline",
@@ -37,8 +32,10 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 sm:py-32 relative bg-slate-50/60 dark:bg-zinc-950/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-24 sm:py-32 relative bg-slate-50/60 dark:bg-zinc-950/20 overflow-hidden">
+      <SectionWatermark number="05" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           number="05"
           category="INDUSTRY OBJECTIVE"
@@ -48,17 +45,17 @@ export default function Experience() {
 
         {/* Clean, Stable Internship Objective Card */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="p-8 sm:p-12 rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/80 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-2xl relative overflow-hidden"
         >
           {/* Subtle accent glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-500/25 text-xs font-mono font-semibold mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-500/25 text-xs font-mono font-semibold mb-6 shadow-xs">
               <Clock className="w-3.5 h-3.5" />
               <span>CURRENT STATUS: SEEKING INTERNSHIP OPPORTUNITIES</span>
             </div>
@@ -90,41 +87,27 @@ export default function Experience() {
               </div>
             </div>
 
-            {/* What I bring to teams */}
+            {/* What I bring to teams with Staggered Entrance */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
               {capabilities.map((item, idx) => (
                 <motion.div
                   key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   whileHover={{ scale: 1.015, y: -2 }}
                   whileTap={{ scale: 0.985 }}
                   className="p-4 rounded-xl border border-slate-200/80 dark:border-white/5 bg-slate-50/70 dark:bg-zinc-900/50 hover:border-blue-500/40 hover:bg-blue-50/30 transition-all duration-200"
                 >
-                  <h4 className="text-xs font-mono font-bold text-zinc-950 dark:text-white uppercase flex items-center gap-2 mb-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <h4 className="text-sm font-bold text-zinc-950 dark:text-white font-display">
                     {item.title}
                   </h4>
-                  <p className="text-xs text-slate-600 dark:text-zinc-400 font-light leading-relaxed pl-5.5 font-sans">
+                  <p className="text-xs text-slate-600 dark:text-zinc-400 mt-1.5 leading-relaxed font-light font-sans">
                     {item.description}
                   </p>
                 </motion.div>
               ))}
-            </div>
-
-            {/* CTA Trigger */}
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold uppercase tracking-widest shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-200 group select-none cursor-pointer"
-              >
-                <span>LET'S CONNECT</span>
-                <Send className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-              </motion.button>
-
-              <span className="text-xs font-mono text-slate-600 dark:text-zinc-400">
-                Available for remote or in-person student internships
-              </span>
             </div>
           </div>
         </motion.div>
