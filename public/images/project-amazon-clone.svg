@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" fill="none">
+  <defs>
+    <linearGradient id="amazonBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F1117" />
+      <stop offset="100%" stop-color="#090A0D" />
+    </linearGradient>
+    <linearGradient id="amazonAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="600" fill="url(#amazonBg)" />
+  <rect x="20" y="20" width="960" height="560" rx="14" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- Mockup Navigation Header -->
+  <rect x="20" y="20" width="960" height="54" rx="14" fill="#131921" />
+  <text x="50" y="52" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="20">amazon<tspan fill="#F59E0B">.in</tspan></text>
+  
+  <!-- Search Bar -->
+  <rect x="240" y="30" width="460" height="34" rx="6" fill="#FFFFFF" />
+  <rect x="660" y="30" width="40" height="34" rx="6" fill="url(#amazonAmber)" />
+  <text x="260" y="52" fill="#555555" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">Search Amazon Clone...</text>
+
+  <!-- Sub Navigation -->
+  <rect x="20" y="74" width="960" height="32" fill="#232F3E" />
+  <text x="50" y="95" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">All Categories • Today's Deals • Customer Service • Electronics</text>
+
+  <!-- Hero Promotional Banner -->
+  <g transform="translate(60, 130)">
+    <rect width="880" height="150" rx="10" fill="#1F2937" stroke="rgba(255,255,255,0.06)" />
+    <text x="40" y="60" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="2">FRONTEND E-COMMERCE IMPLEMENTATION</text>
+    <text x="40" y="95" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-weight="800" font-size="28">AMAZON STOREFRONT CLONE</text>
+    <text x="40" y="125" fill="rgba(255,255,255,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Responsive multi-column product showcase built with semantic HTML5 &amp; CSS3</text>
+  </g>
+
+  <!-- Product Category Cards Grid -->
+  <g transform="translate(60, 310)">
+    <!-- Box 1 -->
+    <rect x="0" y="0" width="200" height="210" rx="8" fill="#151922" stroke="rgba(255,255,255,0.08)" />
+    <text x="20" y="32" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="14">Shop Electronics</text>
+    <rect x="20" y="50" width="160" height="110" rx="6" fill="#1E2430" />
+    <circle cx="100" cy="105" r="30" fill="#3B82F6" opacity="0.4" />
+    <text x="20" y="185" fill="#3B82F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Explore deals &rarr;</text>
+
+    <!-- Box 2 -->
+    <rect x="225" y="0" width="200" height="210" rx="8" fill="#151922" stroke="rgba(255,255,255,0.08)" />
+    <text x="245" y="32" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="14">Fashion &amp; Apparel</text>
+    <rect x="245" y="50" width="160" height="110" rx="6" fill="#1E2430" />
+    <circle cx="325" cy="105" r="30" fill="#EC4899" opacity="0.4" />
+    <text x="245" y="185" fill="#3B82F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">See more &rarr;</text>
+
+    <!-- Box 3 -->
+    <rect x="450" y="0" width="200" height="210" rx="8" fill="#151922" stroke="rgba(255,255,255,0.08)" />
+    <text x="470" y="32" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="14">Home Essentials</text>
+    <rect x="470" y="50" width="160" height="110" rx="6" fill="#1E2430" />
+    <circle cx="550" cy="105" r="30" fill="#10B981" opacity="0.4" />
+    <text x="470" y="185" fill="#3B82F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Discover more &rarr;</text>
+
+    <!-- Box 4 -->
+    <rect x="675" y="0" width="205" height="210" rx="8" fill="#151922" stroke="rgba(255,255,255,0.08)" />
+    <text x="695" y="32" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="14">Technical Stack</text>
+    <rect x="695" y="50" width="165" height="110" rx="6" fill="#1E2430" />
+    <text x="715" y="90" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="12">HTML5 / CSS3</text>
+    <text x="715" y="115" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11">Flexbox &amp; Grid</text>
+    <text x="695" y="185" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="11">GITHUB REPO ACTIVE</text>
+  </g>
+
+  <!-- Footer status line -->
+  <text x="60" y="555" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="11">GITHUB: PRAJVALRSHUNTY/AMZON-CLONE // COMMITTED JULY 2026</text>
+  <text x="760" y="555" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="11">STATUS: COMPLETED</text>
+</svg>

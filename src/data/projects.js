@@ -29,6 +29,35 @@ export const projects = [
     ]
   },
   {
+    id: "amazon-clone",
+    slug: "amazon-clone",
+    title: "Amazon Storefront Interface Clone",
+    category: "Frontend Web Development",
+    status: "COMPLETED",
+    badge: "GITHUB REPO",
+    isUpcoming: false,
+    shortDescription: "A faithful frontend recreation of the Amazon e-commerce storefront featuring multi-level navigation headers, hero banners, and responsive product category grids.",
+    fullDescription: "A frontend engineering project hosted on GitHub that replicates the core UI layout of Amazon's e-commerce platform. Built with semantic HTML5 and custom CSS3, focusing on CSS Grid and Flexbox alignment, accessible markup, and multi-tier product card layouts.",
+    techStack: ["HTML5", "CSS3", "Flexbox", "CSS Grid", "Responsive Design"],
+    featured: true,
+    githubUrl: "https://github.com/prajvalrshunty/amzon-clone",
+    liveUrl: null, // As documented in Prajval's GitHub profile: "No live demo is currently available"
+    image: "/images/project-amazon-clone.svg",
+    year: "2026",
+    role: "Frontend Developer",
+    highlights: [
+      "Faithful multi-tiered Amazon header with search bar, delivery location, and category links",
+      "Responsive promotional hero banner showcasing featured product deals",
+      "Modular product category boxes arranged with CSS Flexbox and Grid layouts",
+      "Pure vanilla implementation demonstrating foundational DOM structure and CSS mastery"
+    ],
+    architecture: [
+      "Structural Markup: Semantic HTML5 hierarchy utilizing headers, navigation bars, and section containers.",
+      "Styling Engine: Pure CSS3 styling leveraging flexbox alignment for navbar components and multi-column grid arrays.",
+      "Asset Management: Local imagery assets organized for hero promotions and multi-box category sections."
+    ]
+  },
+  {
     id: "student-performance-prediction",
     slug: "student-performance-prediction",
     title: "AI Student Academic Performance Analyzer",
