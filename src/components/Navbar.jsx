@@ -1,0 +1,190 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Download, ArrowUpRight } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
+import { personalInfo } from '../data/personalInfo';
+
+const navItems = [
+  { id: 'hero', label: 'Home', href: '#hero' },
+  { id: 'about', label: 'About', href: '#about' },
+  { id: 'skills', label: 'Skills', href: '#skills' },
+  { id: 'projects', label: 'Projects', href: '#projects' },
+  { id: 'education', label: 'Education', href: '#education' },
+  { id: 'experience', label: 'Experience', href: '#experience' },
+  { id: 'contact', label: 'Contact', href: '#contact' },
+];
+
+export default function Navbar({ theme, toggleTheme }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHome = location.pathname === '/';
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+
+      if (isHome) {
+        const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
+        const scrollPosition = window.scrollY + 200;
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
+          if (section.offsetTop <= scrollPosition) {
+            setActiveSection(section.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHome]);
+
+  const handleNavClick = (e, item) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (!isHome) {
+      navigate('/' + item.href);
+      return;
+    }
+
+    const target = document.getElementById(item.id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? 'py-3.5 bg-black/80 dark:bg-black/80 light:bg-white/80 backdrop-blur-xl border-b border-white/10 dark:border-white/10 light:border-black/10 shadow-lg'
+            : 'py-5 bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            {/* Logo / Monogram */}
+            <Link
+              to="/"
+              onClick={(e) => {
+                if (isHome) {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="group flex items-center gap-3 focus:outline-none"
+            >
+              <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-white/15 text-white flex items-center justify-center font-editorial font-bold text-sm tracking-wider group-hover:border-blue-500 transition-colors shadow-sm">
+                PR
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-bold tracking-tight text-white dark:text-white light:text-zinc-950 font-editorial uppercase">
+                  Prajval R Shunty
+                </span>
+                <span className="text-[10px] font-mono tracking-widest text-zinc-400 dark:text-zinc-400 light:text-zinc-600 -mt-0.5">
+                  DATA SCIENCE &amp; AI
+                </span>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-1 p-1 rounded-full border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/60 dark:bg-zinc-950/60 light:bg-zinc-100/80 backdrop-blur-md">
+              {navItems.map((item) => {
+                const isActive = isHome && activeSection === item.id;
+                return (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
+                      isActive
+                        ? 'bg-blue-600 text-white font-semibold shadow-sm'
+                        : 'text-zinc-400 hover:text-white dark:hover:text-white light:hover:text-black hover:bg-white/5'
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </nav>
+
+            {/* Right Action Cluster */}
+            <div className="hidden sm:flex items-center gap-3">
+              <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+
+              <a
+                href={personalInfo.resume.downloadUrl}
+                download={personalInfo.resume.filename}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider bg-white/10 dark:bg-white/10 light:bg-black/10 hover:bg-blue-600 hover:text-white text-zinc-200 dark:text-zinc-200 light:text-zinc-900 border border-white/10 dark:border-white/10 light:border-black/10 transition-all duration-200 font-semibold"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Resume</span>
+              </a>
+            </div>
+
+            {/* Mobile Actions Hamburger & Theme */}
+            <div className="flex sm:hidden items-center gap-2">
+              <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle navigation menu"
+                className="p-2 rounded-xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-900/80 text-zinc-300 hover:text-white"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-x-0 top-16 z-30 p-4 lg:hidden"
+          >
+            <div className="rounded-2xl border border-white/15 dark:border-white/15 light:border-black/15 bg-zinc-950/95 dark:bg-zinc-950/95 light:bg-white/95 backdrop-blur-2xl p-6 shadow-2xl space-y-4">
+              <div className="space-y-1">
+                {navItems.map((item) => (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
+                    className="block px-4 py-2.5 rounded-xl text-sm font-mono uppercase tracking-wider text-zinc-300 dark:text-zinc-300 light:text-zinc-800 hover:bg-blue-600 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="pt-4 border-t border-white/10 dark:border-white/10 light:border-black/10">
+                <a
+                  href={personalInfo.resume.downloadUrl}
+                  download={personalInfo.resume.filename}
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white font-mono text-xs uppercase tracking-wider font-semibold"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download Resume PDF</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}

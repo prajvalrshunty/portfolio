@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad_project-resume-analyzer.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121217" />
+      <stop offset="100%" stop-color="#08080A" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="600" fill="url(#bgGrad_project-resume-analyzer.svg)" />
+  <rect x="20" y="20" width="960" height="560" rx="14" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  
+  <!-- Subtle Grid -->
+  <line x1="80" y1="20" x2="80" y2="580" stroke="rgba(255,255,255,0.03)" />
+  <line x1="920" y1="20" x2="920" y2="580" stroke="rgba(255,255,255,0.03)" />
+
+  <!-- Header -->
+  <text x="80" y="80" fill="#8B5CF6" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="3">NATURAL LANGUAGE PROCESSING // NER & COSINE MATCH</text>
+  <text x="80" y="125" fill="#FFFFFF" font-family="'Syne', sans-serif" font-weight="700" font-size="28">INTELLIGENT RESUME ANALYZER</text>
+  <text x="80" y="155" fill="rgba(255,255,255,0.5)" font-family="'Space Grotesk', sans-serif" font-size="14">Extracting skills, computing vector embeddings & gap analysis.</text>
+
+  <!-- Status Badge -->
+  <rect x="760" y="65" width="160" height="32" rx="16" fill="rgba(255,255,255,0.05)" stroke="#8B5CF6" stroke-width="1.5" />
+  <circle cx="780" cy="81" r="4" fill="#8B5CF6" />
+  <text x="795" y="86" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">IDEA / PLANNED</text>
+
+  <!-- Diagram Visual -->
+  
+      <!-- NER Tag Nodes and Embeddings Vector -->
+      <g transform="translate(100, 260)">
+        <rect x="0" y="20" width="160" height="40" rx="6" fill="#1C182A" stroke="#8B5CF6" stroke-width="1.5" />
+        <text x="20" y="46" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="13">ENTITY: [SKILL]</text>
+        
+        <path d="M 160 40 L 260 40" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 4" />
+        
+        <rect x="260" y="10" width="220" height="60" rx="8" fill="#1A1428" stroke="rgba(255,255,255,0.2)" />
+        <text x="280" y="36" fill="#A78BFA" font-family="'Space Grotesk', sans-serif" font-size="12">VECTOR EMBEDDING</text>
+        <text x="280" y="56" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12">[0.42, 0.88, -0.15, ...]</text>
+
+        <path d="M 480 40 L 560 40" stroke="#8B5CF6" stroke-width="2" />
+        <rect x="560" y="20" width="160" height="40" rx="6" fill="#1C182A" stroke="#10B981" stroke-width="1.5" />
+        <text x="580" y="46" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="13">MATCH: 87.4%</text>
+      </g>
+    
+
+  <!-- Footer coordinates -->
+  <text x="80" y="540" fill="rgba(255,255,255,0.25)" font-family="'JetBrains Mono', monospace" font-size="11">PRA-PROJECT-ARCHIVE // DATA SCIENCE &amp; AI EXPERIMENTS</text>
+  <text x="740" y="540" fill="rgba(255,255,255,0.25)" font-family="'JetBrains Mono', monospace" font-size="11">STATUS: PLANNED</text>
+</svg>

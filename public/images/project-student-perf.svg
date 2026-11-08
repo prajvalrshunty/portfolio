@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad_project-student-perf.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121217" />
+      <stop offset="100%" stop-color="#08080A" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="600" fill="url(#bgGrad_project-student-perf.svg)" />
+  <rect x="20" y="20" width="960" height="560" rx="14" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  
+  <!-- Subtle Grid -->
+  <line x1="80" y1="20" x2="80" y2="580" stroke="rgba(255,255,255,0.03)" />
+  <line x1="920" y1="20" x2="920" y2="580" stroke="rgba(255,255,255,0.03)" />
+
+  <!-- Header -->
+  <text x="80" y="80" fill="#3B82F6" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="3">MACHINE LEARNING // SCATTER & REGRESSION</text>
+  <text x="80" y="125" fill="#FFFFFF" font-family="'Syne', sans-serif" font-weight="700" font-size="28">STUDENT PERFORMANCE PREDICTION</text>
+  <text x="80" y="155" fill="rgba(255,255,255,0.5)" font-family="'Space Grotesk', sans-serif" font-size="14">Feature engineering on attendance, quizzes & grade prediction models.</text>
+
+  <!-- Status Badge -->
+  <rect x="760" y="65" width="160" height="32" rx="16" fill="rgba(255,255,255,0.05)" stroke="#3B82F6" stroke-width="1.5" />
+  <circle cx="780" cy="81" r="4" fill="#3B82F6" />
+  <text x="795" y="86" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">IDEA / PLANNED</text>
+
+  <!-- Diagram Visual -->
+  
+      <!-- Scatter plot & Regression line -->
+      <g transform="translate(100, 240)">
+        <line x1="0" y1="260" x2="600" y2="260" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+        <line x1="0" y1="0" x2="0" y2="260" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+        <circle cx="80" cy="220" r="5" fill="#3B82F6" />
+        <circle cx="140" cy="190" r="5" fill="#60A5FA" />
+        <circle cx="210" cy="170" r="5" fill="#3B82F6" />
+        <circle cx="280" cy="130" r="5" fill="#93C5FD" />
+        <circle cx="340" cy="110" r="5" fill="#3B82F6" />
+        <circle cx="420" cy="80" r="5" fill="#60A5FA" />
+        <circle cx="490" cy="60" r="5" fill="#3B82F6" />
+        <circle cx="560" cy="30" r="5" fill="#93C5FD" />
+        <!-- Trendline -->
+        <line x1="20" y1="240" x2="580" y2="20" stroke="#3B82F6" stroke-width="3" stroke-dasharray="6 4" />
+        <text x="380" y="40" fill="#3B82F6" font-family="'JetBrains Mono', monospace" font-size="12">R² = 0.892 // AUC = 0.94</text>
+      </g>
+    
+
+  <!-- Footer coordinates -->
+  <text x="80" y="540" fill="rgba(255,255,255,0.25)" font-family="'JetBrains Mono', monospace" font-size="11">PRA-PROJECT-ARCHIVE // DATA SCIENCE &amp; AI EXPERIMENTS</text>
+  <text x="740" y="540" fill="rgba(255,255,255,0.25)" font-family="'JetBrains Mono', monospace" font-size="11">STATUS: PLANNED</text>
+</svg>

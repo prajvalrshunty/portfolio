@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad_project-finance.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121217" />
+      <stop offset="100%" stop-color="#08080A" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="600" fill="url(#bgGrad_project-finance.svg)" />
+  <rect x="20" y="20" width="960" height="560" rx="14" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  
+  <!-- Subtle Grid -->
+  <line x1="80" y1="20" x2="80" y2="580" stroke="rgba(255,255,255,0.03)" />
+  <line x1="920" y1="20" x2="920" y2="580" stroke="rgba(255,255,255,0.03)" />
+
+  <!-- Header -->
+  <text x="80" y="80" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="3">DATA VISUALIZATION // AGGREGATION & BURNDOWN</text>
+  <text x="80" y="125" fill="#FFFFFF" font-family="'Syne', sans-serif" font-weight="700" font-size="28">PERSONAL FINANCE ANALYSIS DASHBOARD</text>
+  <text x="80" y="155" fill="rgba(255,255,255,0.5)" font-family="'Space Grotesk', sans-serif" font-size="14">Automated CSV ingestion, transaction clustering & monthly burn projection.</text>
+
+  <!-- Status Badge -->
+  <rect x="760" y="65" width="160" height="32" rx="16" fill="rgba(255,255,255,0.05)" stroke="#10B981" stroke-width="1.5" />
+  <circle cx="780" cy="81" r="4" fill="#10B981" />
+  <text x="795" y="86" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">IDEA / PLANNED</text>
+
+  <!-- Diagram Visual -->
+  
+      <!-- Bar chart breakdown -->
+      <g transform="translate(100, 250)">
+        <line x1="0" y1="220" x2="600" y2="220" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+        <rect x="40" y="80" width="50" height="140" rx="4" fill="#10B981" opacity="0.8" />
+        <rect x="120" y="120" width="50" height="100" rx="4" fill="#10B981" opacity="0.6" />
+        <rect x="200" y="50" width="50" height="170" rx="4" fill="#34D399" opacity="0.9" />
+        <rect x="280" y="90" width="50" height="130" rx="4" fill="#10B981" opacity="0.7" />
+        <rect x="360" y="140" width="50" height="80" rx="4" fill="#10B981" opacity="0.5" />
+        <rect x="440" y="60" width="50" height="160" rx="4" fill="#34D399" opacity="0.95" />
+        <text x="520" y="140" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="12">+14.2% SAVINGS</text>
+      </g>
+    
+
+  <!-- Footer coordinates -->
+  <text x="80" y="540" fill="rgba(255,255,255,0.25)" font-family="'JetBrains Mono', monospace" font-size="11">PRA-PROJECT-ARCHIVE // DATA SCIENCE &amp; AI EXPERIMENTS</text>
+  <text x="740" y="540" fill="rgba(255,255,255,0.25)" font-family="'JetBrains Mono', monospace" font-size="11">STATUS: PLANNED</text>
+</svg>

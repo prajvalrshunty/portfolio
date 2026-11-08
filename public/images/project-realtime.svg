@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad_project-realtime.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121217" />
+      <stop offset="100%" stop-color="#08080A" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="600" fill="url(#bgGrad_project-realtime.svg)" />
+  <rect x="20" y="20" width="960" height="560" rx="14" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  
+  <!-- Subtle Grid -->
+  <line x1="80" y1="20" x2="80" y2="580" stroke="rgba(255,255,255,0.03)" />
+  <line x1="920" y1="20" x2="920" y2="580" stroke="rgba(255,255,255,0.03)" />
+
+  <!-- Header -->
+  <text x="80" y="80" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="3">WEBSOCKETS // ZERO-LAG TELEMETRY</text>
+  <text x="80" y="125" fill="#FFFFFF" font-family="'Syne', sans-serif" font-weight="700" font-size="28">REAL-TIME DATA VISUALIZATION PLATFORM</text>
+  <text x="80" y="155" fill="rgba(255,255,255,0.5)" font-family="'Space Grotesk', sans-serif" font-size="14">High-frequency telemetry stream with responsive canvas charting.</text>
+
+  <!-- Status Badge -->
+  <rect x="760" y="65" width="160" height="32" rx="16" fill="rgba(255,255,255,0.05)" stroke="#F59E0B" stroke-width="1.5" />
+  <circle cx="780" cy="81" r="4" fill="#F59E0B" />
+  <text x="795" y="86" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">IDEA / PLANNED</text>
+
+  <!-- Diagram Visual -->
+  
+      <!-- Wave pulses -->
+      <g transform="translate(100, 260)">
+        <path d="M 0 100 Q 75 20, 150 100 T 300 100 T 450 100 T 600 100" fill="none" stroke="#F59E0B" stroke-width="3" />
+        <path d="M 0 100 Q 75 160, 150 100 T 300 100 T 450 100 T 600 100" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="6 6" />
+        <circle cx="300" cy="100" r="7" fill="#F59E0B" />
+        <circle cx="300" cy="100" r="14" stroke="#F59E0B" stroke-width="1.5" opacity="0.4" />
+        <text x="320" y="90" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="12">60 FPS // 12ms PING</text>
+      </g>
+    
+
+  <!-- Footer coordinates -->
+  <text x="80" y="540" fill="rgba(255,255,255,0.25)" font-family="'JetBrains Mono', monospace" font-size="11">PRA-PROJECT-ARCHIVE // DATA SCIENCE &amp; AI EXPERIMENTS</text>
+  <text x="740" y="540" fill="rgba(255,255,255,0.25)" font-family="'JetBrains Mono', monospace" font-size="11">STATUS: PLANNED</text>
+</svg>
