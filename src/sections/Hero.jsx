@@ -4,6 +4,7 @@ import { ArrowDown, Download, ArrowRight, Mail } from 'lucide-react';
 import { Github, Linkedin } from '../components/Icons';
 import StatusBadge from '../components/StatusBadge';
 import { CardContainer, CardBody, CardItem } from '../components/ThreeDCard';
+import InteractivePortrait from '../components/InteractivePortrait';
 import { personalInfo } from '../data/personalInfo';
 
 export default function Hero() {
@@ -149,28 +150,15 @@ export default function Hero() {
             <CardContainer containerClassName="w-full max-w-sm sm:max-w-md py-4">
               <CardBody className="relative w-full rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-xl dark:shadow-2xl bg-white dark:bg-zinc-950 p-3">
                 <CardItem translateZ="20" className="w-full rounded-2xl overflow-hidden relative">
-                  <img
-                    src="/images/avatar-prajval.svg"
-                    alt="Prajval R Shunty — Portrait representation"
-                    className="w-full h-auto object-cover grayscale contrast-125"
+                  <InteractivePortrait
+                    src="/images/prajval-portrait.jpg"
+                    alt="Prajval R Shunty — Data Science & AI Developer"
                   />
-
-                  {/* Editorial Floating Data Strip */}
-                  <div className="absolute bottom-4 inset-x-4 p-4 rounded-xl bg-white/95 dark:bg-black/85 backdrop-blur-xl border border-zinc-200 dark:border-white/10 flex items-center justify-between text-xs font-mono shadow-md">
-                    <div>
-                      <span className="text-zinc-500 dark:text-zinc-400 block text-[10px]">CURRENT FOCUS</span>
-                      <span className="text-zinc-950 dark:text-white font-semibold">Data Science &amp; AI</span>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-zinc-500 dark:text-zinc-400 block text-[10px]">AFFILIATION</span>
-                      <span className="text-blue-600 dark:text-blue-400 font-semibold">BIET Davangere</span>
-                    </div>
-                  </div>
                 </CardItem>
 
                 <CardItem
                   translateZ="30"
-                  className="absolute -top-2 -right-2 px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-white/15 text-[10px] font-mono text-zinc-700 dark:text-zinc-300 tracking-wider shadow-sm"
+                  className="absolute -top-2 -right-2 px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-white/15 text-[10px] font-mono text-zinc-700 dark:text-zinc-300 tracking-wider shadow-sm z-30"
                 >
                   ID // PRA-01
                 </CardItem>
