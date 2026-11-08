@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { User, GraduationCap, Building2, Calendar, Award, MapPin, Sparkles, BrainCircuit } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
-import { CardContainer, CardBody, CardItem } from '../components/ThreeDCard';
 import { personalInfo } from '../data/personalInfo';
 
 export default function About() {
@@ -70,66 +69,53 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* 3D Quick Info Panel (5 cols) */}
+          {/* Quick Info Panel (5 cols) */}
           <div className="lg:col-span-5">
-            <CardContainer containerClassName="w-full">
-              <CardBody className="rounded-3xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/80 dark:bg-zinc-950/80 light:bg-white p-6 sm:p-8 backdrop-blur-md shadow-2xl relative overflow-hidden">
-                <div className="flex items-center justify-between pb-5 mb-5 border-b border-white/10 dark:border-white/10 light:border-black/10">
-                  <div>
-                    <CardItem
-                      translateZ="30"
-                      className="text-[10px] font-mono tracking-widest uppercase text-blue-400 font-semibold"
-                    >
-                      ACADEMIC PROFILE
-                    </CardItem>
-                    <CardItem
-                      translateZ="50"
-                      as="h3"
-                      className="text-xl font-bold font-display text-white dark:text-white light:text-zinc-900 uppercase"
-                    >
-                      Information Dossier
-                    </CardItem>
-                  </div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10B981]" />
+            <div className="rounded-3xl border border-white/10 dark:border-white/10 light:border-black/10 bg-zinc-950/80 dark:bg-zinc-950/80 light:bg-white p-6 sm:p-8 backdrop-blur-md shadow-xl hover:border-white/20 transition-all duration-300">
+              <div className="flex items-center justify-between pb-5 mb-5 border-b border-white/10 dark:border-white/10 light:border-black/10">
+                <div>
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-blue-400 font-semibold block mb-1">
+                    ACADEMIC PROFILE
+                  </span>
+                  <h3 className="text-xl font-bold font-display text-white dark:text-white light:text-zinc-900 uppercase">
+                    Information Dossier
+                  </h3>
                 </div>
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10B981]" />
+              </div>
 
-                {/* Info Items List with 3D Depth */}
-                <div className="space-y-4">
-                  {infoList.map((item, i) => {
-                    const Icon = item.icon;
-                    return (
-                      <CardItem
-                        key={i}
-                        translateZ={30 + i * 5}
-                        className="flex items-start justify-between py-2 border-b border-white/5 dark:border-white/5 light:border-black/5 text-sm"
+              {/* Info Items List */}
+              <div className="space-y-4">
+                {infoList.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-start justify-between py-2 border-b border-white/5 dark:border-white/5 light:border-black/5 text-sm"
+                    >
+                      <div className="flex items-center gap-2.5 text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-mono text-xs">
+                        <Icon className="w-4 h-4 text-blue-400/80" />
+                        <span>{item.label}</span>
+                      </div>
+                      <span
+                        className={`font-medium text-right text-xs sm:text-sm ${
+                          item.highlight
+                            ? 'text-emerald-400 font-mono font-bold'
+                            : 'text-white dark:text-white light:text-zinc-900'
+                        }`}
                       >
-                        <div className="flex items-center gap-2.5 text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-mono text-xs">
-                          <Icon className="w-4 h-4 text-blue-400/80" />
-                          <span>{item.label}</span>
-                        </div>
-                        <span
-                          className={`font-medium text-right text-xs sm:text-sm ${
-                            item.highlight
-                              ? 'text-emerald-400 font-mono font-bold'
-                              : 'text-white dark:text-white light:text-zinc-900'
-                          }`}
-                        >
-                          {item.value}
-                        </span>
-                      </CardItem>
-                    );
-                  })}
-                </div>
+                        {item.value}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
 
-                {/* Verified academic banner */}
-                <CardItem
-                  translateZ="40"
-                  className="mt-6 p-4 rounded-xl bg-white/[0.03] dark:bg-white/[0.03] light:bg-black/[0.03] border border-white/5 dark:border-white/5 light:border-black/5 text-xs text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-mono leading-relaxed"
-                >
-                  Verified B.E. Computer Science &amp; Engineering (Data Science) student (2025–2029) at BIET Davangere.
-                </CardItem>
-              </CardBody>
-            </CardContainer>
+              {/* Verified academic banner */}
+              <div className="mt-6 p-4 rounded-xl bg-white/[0.03] dark:bg-white/[0.03] light:bg-black/[0.03] border border-white/5 dark:border-white/5 light:border-black/10 text-xs text-zinc-400 dark:text-zinc-400 light:text-zinc-600 font-mono leading-relaxed">
+                Verified B.E. Computer Science &amp; Engineering (Data Science) student (2025–2029) at BIET Davangere.
+              </div>
+            </div>
           </div>
         </div>
       </div>

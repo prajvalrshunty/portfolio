@@ -17,10 +17,16 @@ export const CardContainer = ({
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;
     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left - width / 2) / 16;
-    const y = (e.clientY - top - height / 2) / 16;
-    setRotateX(-y);
-    setRotateY(x);
+    
+    // Very gentle, subtle micro-tilt (max ~3 to 4 degrees)
+    const rawX = (e.clientX - left - width / 2) / 60;
+    const rawY = (e.clientY - top - height / 2) / 60;
+    
+    const clampedX = Math.max(-4, Math.min(4, rawX));
+    const clampedY = Math.max(-4, Math.min(4, rawY));
+
+    setRotateX(-clampedY);
+    setRotateY(clampedX);
     setMousePos({
       x: e.clientX - left,
       y: e.clientY - top,
@@ -49,7 +55,7 @@ export const CardContainer = ({
             onMouseEnter={handleMouseEnter}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={`relative transition-all duration-200 ease-linear ${className}`}
+            className={`relative transition-transform duration-300 ease-out ${className}`}
             style={{
               transformStyle: "preserve-3d",
               transform: isMouseEntered
@@ -74,14 +80,14 @@ export const CardBody = ({
 
   return (
     <div
-      className={`relative h-full w-full rounded-2xl [transform-style:preserve-3d] transition-shadow duration-300 ${className}`}
+      className={`relative h-full w-full rounded-2xl [transform-style:preserve-3d] transition-all duration-300 ${className}`}
     >
-      {/* Aceternity-style dynamic radial spotlight glow */}
+      {/* Subtle radial spotlight glow */}
       {isMouseEntered && (
         <div
           className="pointer-events-none absolute -inset-px rounded-2xl opacity-100 transition-opacity duration-300 z-10"
           style={{
-            background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.18), transparent 80%)`,
+            background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.08), transparent 75%)`,
           }}
         />
       )}
@@ -104,13 +110,18 @@ export const CardItem = ({
 }) => {
   const [isMouseEntered] = useContext(MouseEnterContext);
 
+  // Softened micro-depth (subtle 3D layering without harsh protrusion)
+  const subtleZ = Number(translateZ) * 0.2;
+  const subtleX = Number(translateX) * 0.2;
+  const subtleY = Number(translateY) * 0.2;
+
   return (
     <Tag
-      className={`transition duration-200 ease-out ${className}`}
+      className={`transition-transform duration-300 ease-out ${className}`}
       style={{
         transformStyle: "preserve-3d",
         transform: isMouseEntered
-          ? `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`
+          ? `translateX(${subtleX}px) translateY(${subtleY}px) translateZ(${subtleZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`
           : "translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)",
       }}
       {...rest}
